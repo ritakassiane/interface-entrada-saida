@@ -1,4 +1,8 @@
 # 📌Sistemas Digitais
+O aumento da produtividade industrial utilizando cada vez menos recursos humanos é um dos principais frutos proporcionados pela 4ª revolução industrial. Nesse contexto, a exponencial evolução da tecnologia torna indubitável a necessidade por engenharia qualificada, capaz de maximizar a eficiência de processos utilizando, sobretudo, a prototipação de sistemas. 
+
+Pensando nisso,
+
 
 ## 👥Equipe: <br>
 * Paulo Queiroz de Carvalho <br>
@@ -28,104 +32,71 @@
 </div>
 
 <div id="uart-tx">
-	<h1> Enviando dados via UART através da FPGA </h1>
-			<p>
-		A fim de obter o endereço de memória virtual que permitirá acessar os periféricos da raspberry - nesse contexto a UART - , é realizado o mapeamento de memória. Sabendo que no linux tudo é considerado um arquivo, primeiramente realiza-se uma chamada ao sistema (syscall), solicitando que o sistema operacional utilize o caminho "/dev/mem" para abrir o arquivo que fornece o acesso à memória. Posteriormente o retorno do processo contendo as páginas e endereçamentos é salvo no registrador r0 e movido para r4.
-Em seguida, carregamos a razão entre o endereço de memória física da GPIO e o número de páginas [Coloca a operação e o valor aqui] no registrador r5 e movemos para r1 o valor equivalente ao tamanho da memória que será usado (nesse contexto, 4096). Subsequentemente, realiza-se as operações para configurar as opções de proteção da memória.
-	</p>
-	<p> Para isso, configuramos, respectivamente:</p>
-	<ul>
-				<li>A permissão para os modos de leitura e escrita,</li>
-				<li>Compartilhar o mapeamento com outras partes,</li>
-<li>Permite-se que o sistema operacional escolha o endereço virtual </li>
-<li>Faz uma chamada ao sistema requisitando o serviço mmap2 do Linux, para realizar as configurações implementadas</li>
-				<li>Move-se para r8 o endereço de memória virtual retornado</li>
-	</ul>
+	<h1> Recebendo dados via UART através da FPGA </h1>
+		<p>
+		O módulo UART RX é responsável por implementar a recepção de dados na UART da FPGA. Ele possui duas entradas, duas saídas, e um parâmetro, sendo estes, 		respectivamente: 
+		Clock: pulso de clock
+		RX_Serial: Dado serial
+		RX_Byte: Byte com os 8 bits recebidos
+		Clock por bit: é necessário para que faça com que a UART da Raspberry e da FPGA funcionem na mesma frequência. Para definir o valor deste parâmetro 			calcula-se o  quociente entre a frequência da placa e o baud rate. [Frequência/Baud Rate = 50MHz/14400]). <br>
+		Para realizar a sincronização entre essas duas entidades (Raspberry e FPGA), utiliza-se esse valor como parâmetro para controlar um contador que 		definirá se já é ou não possível identificar o bit que está sendo recebido. Nesse contexto, quando ocorre a variação de 3603 ciclos de clocks da placa, 		significa que já se consegue realizar tal identificação, ou seja, já houve tempo suficiente para que o bit tenha sido recebido. 
+		</p>
+		<p> Nesse módulo existe uma FSM que possui 5 estados:</p>
+		<ul>
+			<li> <strong>IDLE</strong>: <br>Tem a função de zerar todos os registradores. Nesse estado, uma estrutura condicional verifica se a entrada de dados 							RXData recebeu o bit 0 (que representa o Start Bit). Em caso afirmativo, a máquina vai para o próximo estado RX Start 							Bit. Em caso negativo, a máquina se mantém nesse estado até que essa situação ocorra. 
+</li>
+					<li>RX START BIT:
+Nesse estado, o valor de um registrador que funciona como um contador é comparado com o valor do parâmetro Clock por bit definido anteriormente. Se o contador for diferente da quantidade de clocks por bits, ele é incrementado em um.  Essa comparação é realizada para que se possa garantir que a frequência entre as UARTs são iguais, e portanto, já é possível analisar o bit enviado. Posteriormente, quando o contador estiver alcançado o valor exato do clock por bit definido, outra estrutura condicional verifica se o valor do dado em rx_data é zero, em caso afirmativo significa que tudo ocorreu como previsto, o start bit foi recebido, portanto, o contador pode ser resetado e a máquina pode seguir para o próximo estado DATABITS. Caso a condicional seja falsa, algum erro ocorreu, logo, a máquina é levada para o estado de IDLE novamente. 
+</li>
+	<li>RX_DATA_BITS:
+Nesse estado a lógica implementada é semelhante à explicitada no estado anterior. Enquanto não ocorre a quantidade de variações necessárias para a recepção de um bit (3603 ciclos de clock), um registrador que atua como contador é acrescido em 1. 
+Sabendo que o dado que está sendo recebido tem o tamanho de 1 byte, cria-se um registrador chamado RX_Byte para armazenar este. A cada bit recebido - ou seja, a cada 3603 ciclos de clock - um registrador de 3 bits denonimado r_Bit_index é acrescido em 1, e este bit recebido é atribuido ao RX_Byte na posição indicada por r_Bit_index.
+Para garantir que os 8 bits já foram recebidos, uma estrutura condicional verifica se r_Bit_index é menor que 7 (tamanho máximo que este pode assumir). Em caso afirmativo, os bits não foram todos recebidos, portanto, incrementa-se 1 ao index e a máquina de estados volta novamente para o estado de recepção de dados (RX_Data_Bits). Em caso negativo, atribui-se 0 ao index e a FSM segue para o estado de recepção do stop bit.
+
+ </li>
+	<li>RX STOP BIT
+A lógica de funcionamento desse estado é semelhante ao RX START BIT. O valor de um registrador que funciona como um contador é comparado com o valor do parâmetro Clock por bit definido anteriormente. Se o contador for diferente da quantidade de clocks por bits, ele é incrementado em um até que essa igualdade ocorra. Posteriormente, quando o contador estiver alcançado o valor exato do clock por bit definido, atribui-se um nível lógico alto para o registrador Done, o contador pode ser resetado e a máquina pode seguir para o próximo estado CLEANUP. 
+</li>
+					<li>CLEANUP:
+É responsável por enviar a máquina para o estado IDLE, e atribuir 0 para o registrador Done. 
+</li>
+		</ul>
 </div>
 
 
 <div id="uart-rx">
-	<h1> Recebendo dados via UART através da FPGA </h1>
-			<p>
-Agora que já obteve-se o endereço da memória é necessário acessar a localização da UART, as quais serão necessárias para configurar e enviar dados. Consultando a documentação do BCM2835 temos a  informação que as linhas de transmissão e recepção podem ser roteadas através dos pinos 14 e 15 da GPIO, respectivamente. Além disso, indica-se que a UART tem 18 registradores, começando em seu endereço base de 0x2020100. No entanto, para a solução desse protótipo, utilizaremos apenas 6 registradores, sendo esses:
-	</p>
-	<ul>
-		<li>UART DATA REGISTER(offset: 0x0)</li>
-		<p>
-		Usado para enviar e receber dados serialmente, ou seja, um byte de cada vez. Escrever neste registrador é adicionar um byte ao FIFO de transmissão. 
-Outro fato acerca deste registrador é que, embora ele seja seja de 32 bits, apenas os 8 bits menos significativos são usados na transmissão, e 12 bits menos significativos são usados para recepção. Se o FIFO estiver vazio, a UART começará a transmitir o byte imediatamente. Se ele estiver cheio, o último byte no O FIFO será substituído pelo novo byte que é gravado no Data Register. 
-Quando esse registrador é lido, ele retorna o byte no topo do FIFO de recebimento, junto com quatro bits de status adicionais para indicar se algum erro foi encontrado. 
-Foi utilizado os bits entre 7-0 para acessar o último dado enviado e o dado do byte recebido.
-	</ul>
-	<ul>
-		<li>UART_FR (offset: 0x18)</li>
-		<p>
-	O UART Flag Register pode ser lido para determinar o status da UART. Quando vários bytes precisam ser enviados, o sinalizador TXFF deve ser verificado para garantir que o FIFO de transmissão não está cheio antes de cada byte ser escrito no registrador de dados. Ao receber dados, o bit RXFE pode ser usado para determinar se há ou não mais dados a serem lidos do FIFO. 
-		</p>
-	</ul>
-	<ul>
-		<li>UART_IBRD e UART_FRD (offset: 0x24 e 0x28)</li>
-		<p>
-	UART_FBRD é a parte fracionária do valor do Baud Rate Divisor e UART_IBRD é a parte inteira. 
-		</p>
-	</ul>
-	<ul>
-		<li>UART_LCRH (offset: 0x2c)</li>
-		<p>
-É o registrador Line Control. É usado para configurar parâmetros de comunicação e não deve ser alterado até que a UART seja desabilitada escrevendo zero no bit 0 de UART_CR, e o sinalizador BUSY em UART_FR deve estar limpo para indicar que não enta oculpado.
-		</p>
-	</ul>
-	<ul>
-		<li>UART_CR (offset: 0x30)
-</li>
-		<p>
-		A UART Control Register é usada para configurar, habilitar e desabilitar o UART. Para habilitar a transmissão, o bit TXE e o bit UARTEN devem ser configurados para 1. Para habilitar a recepção, o bit RXE e o bit UARTEN devem ser configurados para 1. 
-		</p>
-	</ul>
+	<h1> Enviando dados via UART através da FPGA </h1>
 	<p>
-Em geral, os seguintes passos devem ser usados para configurar ou reconfigurar o UART: <br>
+		O módulo UART TX é responsável por implementar a lógica de envio de dados na UART da FPGA.  Ele possui um parâmetro, três entradas e três saídas, sendo estes, respectivamente: 
+		Clock por bit:
+		Esse parâmetro existe neste módulo pelo mesmo motivo de estar presente no módulo de recepção. No entanto, este valor é utilizado para controlar um 			contador que definirá se já é ou não possível enviar o bit desejado.  Nesse contexto, quando ocorre a variação de 3603 ciclos de clocks da placa, 			significa que já se consegue realizar tal envio, ou seja, já houve tempo suficiente para que o bit tenha sido enviado. 
+	</p>	
 	<ul>
-		<li>Desativar o UART</li>
-		<p>
-Move-se o valor 0 para o registrador 1. Posteriormente realiza um Store Register (str) para arrastar o valor armazenado em R1 para a localização da UART Control register para que seja possível desabilitar toda UART.
+		<li>TX_DV: Identifica o momento em que a transmissão iniciará</li>
+		<li>TX_Byte: Valor que será transmitido</li>
+		<li>Clock</li>
+		<li>output_TX_Active: Representa o momento em a transmissão está ocorrendo</li>
+		<li>output_TX_Serial: O dado que está sendo enviado para raspberry </li>
+		<li>output_TX_Done</li>
 	</ul>
+	<p> Nesse módulo existe uma FSM que possui 5 estados:</p>
 	<ul>
-		<li>Aguardar o final da transmissão ou recepção do caractere atual</li>
-		<p>
-Um loop é criado para aguardar a UART finalizar a transmissão de dados atual, caso exista.
-		</p>
-	</ul>
-	<ul>
-		<li>Esvaziar o FIFO de transmissão definindo o bit FEN como 0 no Line Control Register.</li>
-	</ul>
-	<ul>
-		<li>Configurar novamente o Control Register.</li>
-		<ul>
-			<li>
-				Número de bits do dado, stop bits e paridade
-			</li>
-			<p>
-				Carrega-se em R1 os dados do Line Control Register. Posteriormente, move-se uma sequência de bits para o registrador 0, onde as posições com bits 1 serão as posições as quais serão alteradas nesse registrador. 
-O mnemônico bic(Bit Clear) é utilizado para realizar uma operação AND nos bits de R1 com os complementos dos bits correspondentes no valor R0. Com isso configura-se que o dado enviado deverá ter 7 bits, 2 Stop Bits, será um dado com paridade a qual deve ser ímpar. 
-			</p>
-		</ul>
-		<ul>
-			<li>
-				Baudrate
-			</li>
-			<p>
-Encontra-se o valor do BAUDDIV (Divisor de Baud Rate) através da expressão:
-Frequência de Clock da UART/(16*Baud Rate desejado). Posteriormente, armazena-se o valor inteiro desse resultado no UART_IBRD e a parte fracionária em UART_FBRD. Nesse projeto esse cálculo é aplicado da seguinte maneira:
-BAUDDIV = (50Mhz/ (14400*16)) = 271,01 	
-			</p>
-		</ul>
-	</ul>
-	<ul>
-		<li> Ativar o UART e FIFO</li>
-		<p>
-Para ativar a UART, é adicionado 1 nos bits UARTEN (bit 0) - responsável por ativar a UART - e TXE (bit 8) - responsável por ativar a transmissão de dados - pertencentes ao registrador UART Control Register.
-Posteriormente, deve-se ativar o FIFO. Para isso, deve-se adicionar o valor lógico 1 no bit denominado FEN do registrador Line Control Register. 
-		</p>
+		<li> <strong>IDLE</strong>: <br>
+			Tem a função de zerar todos os registradores, exceto à saída TX_Serial, a qual tem nível lógico alto atribuído, para que quando a transmissão se inicie no estado posterior, seja possível reconhecer o Start BIt como 0. 
+Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV recebeu o bit 1. Em caso afirmativo, significa que irá iniciar uma transmissão de dados, portanto, atribui-se  o valor que deseja transmitir a um registrador denominado TX_DATA e a máquina segue para o estado de envio do Start Bit. Em caso negativo, a máquina se mantém no estado IDLE até que a situação descrita anteriormente ocorra. 
+		</li>
+		<li> <strong>RX START BIT</strong>: <br>
+			Nesse estado, como se sabe que o start bit é 0, inicialmente atribui-se nível lógico baixo à saída TX_Serial. Posteriormente, o valor de um registrador que funciona como um contador é comparado com o valor do parâmetro Clock por bit definido anteriormente para garantir que o envio está sendo realizado sob a frequência necessária. Se o contador for diferente da quantidade de clocks por bits, ele é incrementado em um até que essa igualdade ocorra. Quando essa situação ocorrer, a FSM vai para o estado TX_DATA_BITS para envio de dados. 
+		</li>
+		<li> <strong>TX_DATA_BITS</strong>: <br>
+			Inicialmente atribui-se à saída o_Tx_Serial o bit referente ao byte que deve ser enviado, o qual está localizado no index 0  (representado pelo registrador Bit_Index) do registrador de 8 bits TX_DATA. Enquanto não ocorre a quantidade de variações de clock necessárias para a envio de um bit, um registrador que atua como contador é acrescido em 1 e a máquina vai para o mesmo estado atual denominado TX DATA BITS. Quando o contador alcança 3603, significa que o primeiro bit já foi transmitido e, portanto, já é possível enviar o próximo bit. Para isso, o registrador que atua como contador é zerado e verifica-se se o Bit_index é menor que 7 (tamanho máximo que este pode assumir). Em caso afirmativo, os bits não foram todos enviados, portanto, incrementa-se 1 ao index e a máquina de estados volta novamente para o estado de transmissão de dados (RX_Data_Bits) para que possa enviar o bit da próxima posição. Em caso negativo, atribui-se 0 ao index e a FSM segue para o estado de envio do stop bit.
+		</li>
+		<li> <strong>TX STOP BIT</strong>: <br>
+			Inicialmente, atribui-se nível lógico alto à saída TX_SERIAL, o qual representa o Stop Bit. Posteriormente, o valor de um registrador que funciona como um contador é comparado com o valor do parâmetro Clock por bit definido anteriormente. Se o contador for diferente da quantidade de clocks por bits, ele é incrementado em um até que essa igualdade ocorra. Posteriormente, quando o contador estiver alcançado o valor exato do clock por bit definido, atribui-se um nível lógico alto para o registrador Done (que irá representar que o a transmissão do byte está completa), nível lógico baixo para o registrador TX_Active (para sinalizar que não há transmissão ocorrendo), o contador pode ser resetado e a máquina pode seguir para o próximo estado CLEANUP. 
+		</li>
+		<li> <strong>CLEANUP</strong>: <br>
+			É responsável por enviar a máquina para o estado IDLE, e atribuir 1 para o registrador Done. 
+		</li>
 	</ul>
 </div>
 
