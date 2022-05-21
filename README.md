@@ -10,14 +10,21 @@ Pensando nisso,
 * Rodrigo Damasceno Sampaio <br>
 
 <h1 align="center"> Sumário </h1>
-<div id="sumario" style="display: inline_block" align="center">
-	<a href="#diagrama"> Diagrama  </a> |
-	<a href="#mapeamento"> Mapeamento de memória </a> |
-	<a href="#configuracao"> Configurando a UART</a> |
-	<a href="#enviando"> Enviando dado</a> |
-	<a href="#teste"> Teste </a> |
-	<a href="#executar"> Como executar </a> |
-	<a href="#conclusao"> Conclusão </a>
+<div id="sumario">
+	<ul>
+		<li><a href="#diagrama"> Diagrama</li>
+		<li><a href="#recursos"> Recursos  </a></li>
+		<li><a href="#raspberry"> Configurando, enviado e recebendo dados na Raspberry Pi Zero </a> </li>
+		<li><a href="#uart-rx"> Recebendo dados via UART através da FPGA </a></li>
+		<li><a href="#uart-tx"> Enviando dados via UART através da FPGA </a> </li>
+		<li><a href="#selector"> Selecionando endereço e requisição </a> </li>
+		<li><a href="#dht11"> Recebendo dados do sensor </a> </li>
+		<li><a href="#interface"> Filtrando requisição para obter dado solicitado  </a> </li>
+		<li><a href="#Packsend"> Ordenando envio </a> </li>
+		<li><a href="#teste"> Teste </a></li>
+		<li><a href="#executar"> Como executar </a></li>
+		<li><a href="#conclusao"> Conclusão </a> </li>
+	</ul>	
 </div>
 <div id="recursos">
 	<h1> Recursos </h1>
@@ -30,7 +37,7 @@ Pensando nisso,
 </div>
 
 <div id="diagrama">
-	<h1> Diagrama </h1>
+	<h1> <a href="https://www.figma.com/proto/MKDfCcjhxhD78d0mm3sMHW/Diagrama_Problema02?node-id=103%3A218&scaling=contain&page-id=0%3A1&starting-point-node-id=103%3A218" target="_blank">Diagrama</a>  </h1>
 		<div id="image01" style="display: inline_block" align="center">
 		<img src="/diagrama-do-sis.png"/>
 		<p>
@@ -63,7 +70,7 @@ Pensando nisso,
 	
 	
 </div>
-<div id="uart-tx">
+<div id="uart-rx">
 	<h1> Recebendo dados via UART através da FPGA </h1>
 		<p>
 		O módulo UART RX é responsável por implementar a recepção de dados na UART da FPGA. Ele possui duas entradas, duas saídas, e um parâmetro, sendo estes, 		respectivamente: 
@@ -96,7 +103,7 @@ A lógica de funcionamento desse estado é semelhante ao RX START BIT. O valor d
 </div>
 
 
-<div id="uart-rx">
+<div id="uart-tx">
 	<h1> Enviando dados via UART através da FPGA </h1>
 	<p>
 		O módulo UART TX é responsável por implementar a lógica de envio de dados na UART da FPGA.  Ele possui um parâmetro, três entradas e três saídas, sendo estes, respectivamente: 
