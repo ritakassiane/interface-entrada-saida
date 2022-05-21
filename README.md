@@ -135,8 +135,18 @@ Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV rec
 <div id="selector">
 	<h1>Selecionando endereço e requisição</h1>
 	<p>
-	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
-	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
+		Este módulo tem como principal função permitir que dado uma requisição ou um endereço (ambos com 8 bits), seja possível selecionar um dos 32 sensores possíveis. Para isso existem 3 entradas e 2 saídas, as quais são representadas por, respectivamente:
+	</p>	
+	<ul>
+		<li> i_Clock: pulso de clock</li>
+		<li> i_Data: entrada de 8 bits a qual representa a saída com os dados do módulo RX de recepção de dados.</li>
+		<li> i_Data_Done: </li>
+		<li> o_request: saída que contém a requisição</li>
+		<li>o_interface:  saída que é um registrador de 32 bits. Cada bit deste representa um sensor. Neste problema, os desenvolvedores consideram a existencia de apenas 1 sensor, o qual esta localizado no index 0 deste registrador.  </li>
+	</ul>
+	<p>
+		Os desenvolvedores deste projeto definiram que o primeiro dado recebido por este módulo é o endereço do sensor requisitado. Por isso, cria-se um contador de 2 bits, o qual quando for zero representa a recepção do endereço, portanto, armazeno o dado recebido no registrador address e incrementa 1. Quando o contador for 1, o valor da recepção agora é atribuido ao registrador request, que representa a requisição. Posteriormente, verifica-se o endereço recebido é um byte de 0 (que representa o único sensor com interface implementada), e em caso afirmativo, atribui-se nível lógico alto à posição 0 da saíde o_interface.
+		Quando este módulo receber o primeiro dado
 	</p>
 </div>
 
