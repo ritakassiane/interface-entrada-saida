@@ -152,8 +152,7 @@ Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV rec
 		<li>o_interface:  saída que é um registrador de 32 bits. Cada bit deste representa um sensor. Neste problema, os desenvolvedores consideram a existencia de apenas 1 sensor, o qual esta localizado no index 0 deste registrador.  </li>
 	</ul>
 	<p>
-		Os desenvolvedores deste projeto definiram que o primeiro dado recebido por este módulo é o endereço do sensor requisitado. Por isso, cria-se um contador de 2 bits, o qual quando for zero representa a recepção do endereço, portanto, armazeno o dado recebido no registrador address e incrementa 1. Quando o contador for 1, o valor da recepção agora é atribuido ao registrador request, que representa a requisição. Posteriormente, verifica-se o endereço recebido é um byte de 0 (que representa o único sensor com interface implementada), e em caso afirmativo, atribui-se nível lógico alto à posição 0 da saíde o_interface.
-		Quando este módulo receber o primeiro dado
+		Os desenvolvedores deste projeto definiram que o primeiro dado recebido por este módulo é o endereço do sensor requisitado. Por isso, cria-se um contador de 2 bits, o qual quando for zero representa a recepção do endereço, portanto, armazena-se o dado recebido no registrador address e incrementa 1. Quando o contador for 1, o valor da recepção agora é atribuido ao registrador request, que representa a requisição. Posteriormente, verifica-se o endereço recebido é um byte de 0 (que representa o único sensor com interface implementada), e em caso afirmativo, atribui-se nível lógico alto à posição 0 da saída o_interface, indicando que a solicitação do usuário refere-se à este sensor.
 	</p>
 </div>
 
@@ -168,16 +167,42 @@ Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV rec
 <div id="interface">
 	<h1>  Filtrando requisição para obter dado solicitado </h1>
 	<p>
-	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
-	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
+	Neste projeto utilizou-se o sensor DHT11 o qual tem a capacidade de medir a temperatura e umidade do ambiente.
+	Para filtrar o dado solicitado pelo usuário e requisitar o sensor existente no sistema, foi desenvolvido o módulo denominado interface, o qual tem como função principal instanciar o módulo DHT11, pegar a saída deste e tratar, retornando apenas o dado referente ao que a solicitação pede. 
 	</p>
+	<p>
+	Nesse módulo, existe uma máquina de estados que possui 3 estados, sendo esses:
+	</p>
+	<ul>
+		<li><strong>IDLE:</strong> 
+			<p>Verifica se o DHT11 está ativo - ou seja, se o ENABLE do módulo DHT11 instanciado é nível lógico alto -. EM caso afirmativo, envia a FSM para o estado de leitura denominado READ. Posteriormente, atribui-se nível lógico alto para a entrada Reset do módulo DHT11. </p>
+		</li>
+		<li><strong>READ:</strong> 
+			<p>
+				 Nesse estado, é verificado se a saída DONE do módulo DHT11 é nível lógico alto - fator que indica que a leitura ja ocorreu -. Em caso afirmativo, uma estrutura condicional analisa a requisição para conseguir definir se esta solicita umidade ou temperatura, e a partir disso, atribui-se ao registrador data_int a parte inteira, e a data_float a parte fracionada.
+				Posteriormente, a máquina é enviada para o estado de RESET.
+			</p>
+		</li>
+		<li><strong>RESET:</strong> 
+			<p> Este estado existe para atribuir nível lógico alto a DONE e RESET, o que indicará que o armazenamento do dado fornecido pelo DHT11 ocorreu. Seguidamente, o estado da máquina é alterado para SEND.</p>
+		</li>
+		<li><strong>SEND:</strong> 
+			<p> Altera a saída DONE para nível lógico alto e envia a FSM para o estado FINISH </p>
+		</li>
+		<li><strong>FINISH:</strong> 
+			<p> Atribui-se nível lógico baixo para DONE e Enable do módulo DHT11, e envia a máquina de estados para o estado de IDLE novamente.</p>
+		</li>
+	</ul>
 </div>
 	
 <div id="Packsend">
 	<h1>  Ordenando envio </h1>
 	<p>
-	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
-	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
+	Este módulo possui duas entradas de dados as quais são denominadas de data_one e data_two, e representam, respectivamente, a parte inteira do dado solicitado e a parte fracionada.
+	</p>
+	<p>
+	A responsabilidade desse módulo é pegar a saída da interface e enviar cada byte para 
+		
 	</p>
 </div>
 
