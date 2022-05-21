@@ -19,6 +19,15 @@ Pensando nisso,
 	<a href="#executar"> Como executar </a> |
 	<a href="#conclusao"> Conclusão </a>
 </div>
+<div id="recursos">
+	<h1> Recursos </h1>
+	<ul>
+		<li>Kit de desenvolvimento Mercúrio IV</li>
+		<li>FPGA Cyclone IV</li>
+		<li>Raspberry Pi Zero<V/li>
+	</ul>
+	
+</div>
 
 <div id="diagrama">
 	<h1> Diagrama </h1>
@@ -101,7 +110,7 @@ Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV rec
 </div>
 
 <div id="selector">
-	<h1> Enviando e Recebendo dados </h1>
+	<h1>Selecionando endereço e requisição</h1>
 	<p>
 	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
 	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
@@ -109,7 +118,7 @@ Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV rec
 </div>
 
 <div id="dht11">
-	<h1> Enviando e Recebendo dados </h1>
+	<h1> Recebendo dados do sensor </h1>
 	<p>
 	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
 	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
@@ -117,7 +126,15 @@ Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV rec
 </div>
 
 <div id="interface">
-	<h1> Enviando e Recebendo dados </h1>
+	<h1>  Filtrando requisição para obter dado solicitado </h1>
+	<p>
+	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
+	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
+	</p>
+</div>
+	
+<div id="Packsend">
+	<h1>  Ordenando envio </h1>
 	<p>
 	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
 	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
