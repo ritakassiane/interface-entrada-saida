@@ -39,7 +39,30 @@ Pensando nisso,
 		</div>
 	
 </div>
-
+<div id="raspberry">
+	<h1> Configurando, enviado e recebendo dados na Raspberry Pi Zero </h1>
+	<p> 
+		Para a implementação deste módulo, cria-se funções do código desenvolvido no <a href="https://github.com/ritakassiane/pbl-sistemas-digitais"> Problema 01</a>, sendo estas:	
+	</p>
+	<ul>
+		<li>uartConfig: tem a função de realizar a configuração da UART. Esta recebe 3 parâmetros que são referentes a <a href="https://github.com/ritakassiane/pbl-sistemas-digitais#configuracao">UART_LCRH, UART_IBRD, UART_FBRD</a> </li>
+		<li>uartSendData: responsável pelo envio de dados. Recebe como parâmetro o dado que deve ser enviado. No entanto, é válido ressaltar que esta função não trata a possibi,brade do parametro enviado ter tamanho maior que 8 bits. Portanto, caso isso ocorra, será enviado apenas os 8 bits menos significativos do dado a ser enviado. </li>
+		<li>uartReciveData: recebe o dado. Realiza a leitura de todos os bits do registrador UART DATA. </li>
+	</ul>
+	<h2>Enviando requisição da Raspberry para a FPGA</h2>
+	<p>
+		Inicialmente, o programa utiliza os valores das variáveis UART LCRH, UART_IBRD E UART_FBRD pré-definidos pelo programador como parâmetros da função que configura a Uart.  <br>
+	Posteriormente, inicia-se a interação com o usuário a qual solicita a este qual requisição ele gostaria de saber (Medida de umidade, medida de temperatura ou estado atual do sensor) e qual o número de identificação do sensor que este deseja (apenas permitidos valores entre 1 e 32). Depois, é enviado, respectivamente, o endereço e a requisição para  o pino TX da Raspberry, o qual está ligada ao pino RX da FPGA. 
+	</p>
+	<h2>Leitura da resposta da FPGA</h2>
+	<p>
+			Seguidamente, os dados recebidos no pino RX da Raspberry são lidos e inicialmente analisa se este tem um tamanho maior que 255. Em caso afirmativo, significa que ocorreu a leitura das flags de erro que o registrador UART_DR armazena, portanto, há algum erro no recebimento do dado. Com isso, o programa informa qual o valor deste erro (No entanto, deve-se buscar na documentação da UART qual erro este valor representa). 
+	Se não houver problema de comunicação, verifica-se se o dado do primeiro valor recebido é maior que 127. Isso representa uma decisão de arquitetura do projeto, a qual define que o primeiro bit do sinal recebido da FPGA indica se houve erro ou não. Ou seja, se esse valor recebido for 1, o número binário referente será maior que 127 (11111111). 
+	Caso nenhuma dessas implicações ocorram, significa que o dado foi recebido com sucesso e este é exibido na tela de acordo com o que foi solicitado. 
+	</p>
+	
+	
+</div>
 <div id="uart-tx">
 	<h1> Recebendo dados via UART através da FPGA </h1>
 		<p>
