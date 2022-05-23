@@ -64,7 +64,7 @@ Pensando nisso,
 	<h2>Leitura da resposta da FPGA</h2>
 	<p>
 			Seguidamente, os dados recebidos no pino RX da Raspberry são lidos e inicialmente analisa se este tem um tamanho maior que 255. Em caso afirmativo, significa que ocorreu a leitura das flags de erro que o registrador UART_DR armazena, portanto, há algum erro no recebimento do dado. Com isso, o programa informa qual o valor deste erro (No entanto, deve-se buscar na documentação da UART qual erro este valor representa). 
-	Se não houver problema de comunicação, verifica-se se o dado do primeiro valor recebido é maior que 127. Isso representa uma decisão de arquitetura do projeto, a qual define que o primeiro bit do sinal recebido da FPGA indica se houve erro ou não. Ou seja, se esse valor recebido for 1, o número binário referente será maior que 127 (11111111). 
+	Se não houver problema de comunicação, verifica-se se o dado é maior que 127. Isso representa uma decisão de arquitetura do projeto, a qual define que o primeiro bit do sinal recebido da FPGA indica se houve erro ou não. Ou seja, se esse valor recebido for 1, o número binário referente será maior que 127 (11111111). 
 	Caso nenhuma dessas implicações ocorram, significa que o dado foi recebido com sucesso e este é exibido na tela de acordo com o que foi solicitado. 
 	</p>
 	
