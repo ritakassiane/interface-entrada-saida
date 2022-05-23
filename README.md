@@ -20,8 +20,7 @@ Pensando nisso, uma empresa contratou uma equipe de engenheiros da computação 
 		<li><a href="#selector"> Selecionando endereço e requisição </a> </li>
 		<li><a href="#dht11"> Recebendo dados do sensor </a> </li>
 		<li><a href="#interface"> Filtrando requisição para obter dado solicitado  </a> </li>
-		<li><a href="#Packsend"> Ordenando envio </a> </li>
-		<li><a href="#teste"> Teste </a></li>
+		<li><a href="#pins-les"> Pins e LE's </a> </li>
 		<li><a href="#executar"> Como executar </a></li>
 		<li><a href="#conclusao"> Conclusão </a> </li>
 	</ul>	
@@ -222,7 +221,7 @@ S9: Soma 1 ao contador que indica qual posição do Bit e segue para o estado S6
 		</li>
 	</ul>
 </div>
-<div id="les">
+<div id="pins-les">
 	<h1> LEs, LABs e Pinos</h1>
 	<div id="image01" style="display: inline_block" align="center">
 			<img src="/MAP001.jpg"/><br>
@@ -238,16 +237,6 @@ S9: Soma 1 ao contador que indica qual posição do Bit e segue para o estado S6
 		8 Bts
 		2 SB
 		Paridade: Par
-		</p>
-	</div>
-</div>
-
-<div id="teste">
-	<h1>Testes</h1>
-	<div id="image01" style="display: inline_block" align="center">
-			<img src="/MAP001.jpg"/><br>
-		<p>
-		jdkd
 		</p>
 	</div>
 </div>
