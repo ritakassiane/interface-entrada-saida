@@ -4,10 +4,13 @@ O aumento da produtividade industrial utilizando cada vez menos recursos humanos
 
 Pensando nisso, uma empresa contratou uma equipe de engenheiros da computação em formação, para o desenvolvimento de um protótipo de sistema digital capaz de monitorar 32 sensores. O produto implementado consiste em um sistema comandado por um Single Board Computer (SBC), o qual controla o acionamento de um conjunto variáveis de sensores, assim como monitora o seu seu estado de funcionamento de forma automatizada. Cada operação de pode ser representada por um código o qual é interpretado por um driver UART. 
 </p>
-## 👥Equipe: <br>
-* Paulo Queiroz de Carvalho <br>
-* Rita Kassiane Santos  <br>
-* Rodrigo Damasceno Sampaio <br>
+
+<h1>  👥Equipe: <br></h1>
+<uL> 
+	<li>Paulo Queiroz de Carvalho <br></li>
+	<li>Rita Kassiane Santos  <br></li>
+	<li>Rodrigo Damasceno Sampaio <br></li>
+</ul>
 
 <h1 align="center"> Sumário </h1>
 <div id="sumario">
