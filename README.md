@@ -261,35 +261,6 @@ Seguidamente, abrindo o terminal no diretório Rasp, executa-se:
 make all
 <br>
 Este comando irá gerar o executável PBLSensores, o qual deve ser executado. 
-
-		</p>
-		<ul>
-			<li>uartConfig.s</li>
-			<p>Arquivo principal o qual é usado para a configuração da UART</p>
-		</ul>
-		<ul>
-			<li>uartDateL.s</li>
-			<p>Arquivo de envio de dado e teste de loopback</p>
-		</ul>
-		<ul>
-			<li>uartDateO.s</li>
-			<p>Arquivo que implementa um loop de envio de dados para serem visualizados via osciloscópio</p>
-		</ul>
-		<ul>
-			<li>macros.s</li>
-			<p>Arquivo que implementa um macro de impressão na tela (print) para a utilização em outras partes do sistema</p>
-		</ul>
-		<p>
-			Para executar o produto desenvolvido, utiliza-se o arquivo makefile. 
-			Para isso, dentro de um terminal linux, abra o diretório que contém os arquivos bases mencionados anteriormente e execute os seguinte comando:
-		<ul>
-			<li>make all</li>
-			<p>Cria o executável</p>
-		</ul>
-		<ul>
-			<li>sudo ./UartDateL</li>
-			<p>Executa o programa</p>
-		</ul>
 		</p>
 </div>
 <div id="conclusao">
