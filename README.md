@@ -224,19 +224,16 @@ S9: Soma 1 ao contador que indica qual posição do Bit e segue para o estado S6
 <div id="pins-les">
 	<h1> LEs, LABs e Pinos</h1>
 	<div id="image01" style="display: inline_block" align="center">
-			<img src="/MAP001.jpg"/><br>
+			<img src="images/pins-les.jpeg"/><br>
 	</div>
 </div>
 	
 <div id="executando">
 	<h1> Programa em execução</h1>
 	<div id="image01" style="display: inline_block" align="center">
-			<img src="/MAP001.jpg"/><br>
+			<img src="images/pins-les.jpeg"/><br>
 		<p>
-		Dado: 11001010
-		8 Bts
-		2 SB
-		Paridade: Par
+			
 		</p>
 	</div>
 </div>
