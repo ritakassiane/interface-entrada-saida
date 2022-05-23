@@ -39,10 +39,16 @@ Pensando nisso,
 <div id="diagrama">
 	<h1> <a href="https://www.figma.com/proto/MKDfCcjhxhD78d0mm3sMHW/Diagrama_Problema02?node-id=103%3A218&scaling=contain&page-id=0%3A1&starting-point-node-id=103%3A218" target="_blank">Diagrama</a>  </h1>
 		<div id="image01" style="display: inline_block" align="center">
-		<img src="/diagrama-do-sis.png"/>
+		<img src="/Diagrama01.png"/>
+		<p>
+			Diagrama geral do sistema desenvolvido
+		</p>
+		</div>
+		<div id="image02" style="display: inline_block" align="center">
+		<img src="/Diagrama02.png"/>
 		<p>
 			Diagrama do sistema desenvolvido
-			</p>
+		</p>
 		</div>
 	
 </div>
@@ -205,7 +211,25 @@ Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV rec
 		
 	</p>
 </div>
-
+<div id="les">
+	<h1> LEs, LABs e Pinos</h1>
+	<div id="image01" style="display: inline_block" align="center">
+			<img src="/MAP001.jpg"/><br>
+	</div>
+</div>
+	
+<div id="executando">
+	<h1> Programa em execução</h1>
+	<div id="image01" style="display: inline_block" align="center">
+			<img src="/MAP001.jpg"/><br>
+		<p>
+		Dado: 11001010
+		8 Bts
+		2 SB
+		Paridade: Par
+		</p>
+	</div>
+</div>
 
 <div id="teste">
 	<h1>Testes</h1>
