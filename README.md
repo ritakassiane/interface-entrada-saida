@@ -234,49 +234,49 @@ S9: Soma 1 ao contador que indica qual posição do Bit e segue para o estado S6
 <div id="executando">
 	<h1> Programa em execução</h1>
 	<div id="image01" style="display: inline_block" align="center">
-		<img src="images/01.jpeg"/><br>
+		<img src="images/01.png"/><br>
 		<p>
 			Tela de seleção de ações possíveis	
 		</p>
 	</div>
 	<div id="image01" style="display: inline_block" align="center">
-		<img src="images/02.jpeg"/><br>
+		<img src="images/02.png"/><br>
 		<p>
 			Selecionar sensor	
 		</p>
 	</div>
 	<div id="image01" style="display: inline_block" align="center">
-		<img src="images/03.jpeg"/><br>
+		<img src="images/03.png"/><br>
 		<p>
 			Estado atual do sensor	
 		</p>
 	</div>
 	<div id="image01" style="display: inline_block" align="center">
-		<img src="images/04.jpeg"/><br>
+		<img src="images/04.png"/><br>
 		<p>
 			Temperatura medida pelo sensor	
 		</p>
 	</div>
 	<div id="image01" style="display: inline_block" align="center">
-		<img src="images/05.jpeg"/><br>
+		<img src="images/05.png"/><br>
 		<p>
 			Umidade medida pelo sensor	
 		</p>
 	</div>
 	<div id="image01" style="display: inline_block" align="center">
-		<img src="images/06.jpeg"/><br>
+		<img src="images/06.png"/><br>
 		<p>
 			Temperatura medida pelo sensor	
 		</p>
 	</div>
 	<div id="image01" style="display: inline_block" align="center">
-		<img src="images/09.jpeg"/><br>
+		<img src="images/09.png"/><br>
 		<p>
 			Selecionando um sensor inexistente
 		</p>
 	</div>
 	<div id="image01" style="display: inline_block" align="center">
-		<img src="images/10.jpeg"/><br>
+		<img src="images/10.png"/><br>
 		<p>
 			Erro na recepção de dados
 		</p>
