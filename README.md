@@ -47,7 +47,7 @@ Pensando nisso, uma empresa contratou uma equipe de engenheiros da computação 
 		</p>
 		</div>
 		<div id="image02" style="display: inline_block" align="center">
-		<img src="images/Diagrama02.png"/>
+		<img src="images/diagrama02.png"/>
 		<p>
 			Diagrama do sistema desenvolvido
 		</p>
