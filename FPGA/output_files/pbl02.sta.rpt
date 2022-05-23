@@ -1,0 +1,1202 @@
+Timing Analyzer report for pbl02
+Mon May 23 13:13:10 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'i_Clock'
+ 13. Slow 1200mV 85C Model Hold: 'i_Clock'
+ 14. Slow 1200mV 85C Model Metastability Summary
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 21. Slow 1200mV 0C Model Setup: 'i_Clock'
+ 22. Slow 1200mV 0C Model Hold: 'i_Clock'
+ 23. Slow 1200mV 0C Model Metastability Summary
+ 24. Fast 1200mV 0C Model Setup Summary
+ 25. Fast 1200mV 0C Model Hold Summary
+ 26. Fast 1200mV 0C Model Recovery Summary
+ 27. Fast 1200mV 0C Model Removal Summary
+ 28. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 29. Fast 1200mV 0C Model Setup: 'i_Clock'
+ 30. Fast 1200mV 0C Model Hold: 'i_Clock'
+ 31. Fast 1200mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 38. Setup Transfers
+ 39. Hold Transfers
+ 40. Report TCCS
+ 41. Report RSKM
+ 42. Unconstrained Paths Summary
+ 43. Clock Status Summary
+ 44. Unconstrained Input Ports
+ 45. Unconstrained Output Ports
+ 46. Unconstrained Input Ports
+ 47. Unconstrained Output Ports
+ 48. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; pbl02                                               ;
+; Device Family         ; Cyclone IV E                                        ;
+; Device Name           ; EP4CE30F23C7                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.03        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.9%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                              ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; i_Clock    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { i_Clock } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+
+
++--------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 180.21 MHz ; 180.21 MHz      ; i_Clock    ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++---------+--------+------------------+
+; Clock   ; Slack  ; End Point TNS    ;
++---------+--------+------------------+
+; i_Clock ; -4.549 ; -441.837         ;
++---------+--------+------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++---------+-------+------------------+
+; Clock   ; Slack ; End Point TNS    ;
++---------+-------+------------------+
+; i_Clock ; 0.393 ; 0.000            ;
++---------+-------+------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++---------+--------+--------------------------------+
+; Clock   ; Slack  ; End Point TNS                  ;
++---------+--------+--------------------------------+
+; i_Clock ; -3.000 ; -207.315                       ;
++---------+--------+--------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'i_Clock'                                                                                                                                           ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                       ; To Node                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.549 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.476      ;
+; -4.549 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.476      ;
+; -4.549 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.476      ;
+; -4.549 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.476      ;
+; -4.549 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.476      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.503 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.429      ;
+; -4.487 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.415      ;
+; -4.487 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.415      ;
+; -4.487 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.415      ;
+; -4.487 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.415      ;
+; -4.487 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.415      ;
+; -4.476 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.404      ;
+; -4.476 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.404      ;
+; -4.476 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.404      ;
+; -4.476 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.404      ;
+; -4.476 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.404      ;
+; -4.458 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.386      ;
+; -4.402 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[3]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.329      ;
+; -4.402 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[4]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.329      ;
+; -4.402 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[7]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.329      ;
+; -4.402 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[6]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.329      ;
+; -4.402 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[5]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.329      ;
+; -4.398 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.069     ; 5.327      ;
+; -4.387 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.069     ; 5.316      ;
+; -4.338 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.266      ;
+; -4.338 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.266      ;
+; -4.338 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.266      ;
+; -4.338 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.266      ;
+; -4.338 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.266      ;
+; -4.333 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.260      ;
+; -4.333 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.260      ;
+; -4.333 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.260      ;
+; -4.333 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.260      ;
+; -4.333 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.260      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.330 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.257      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.319 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.071     ; 5.246      ;
+; -4.313 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.241      ;
+; -4.313 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.241      ;
+; -4.313 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.241      ;
+; -4.313 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.241      ;
+; -4.313 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.241      ;
+; -4.296 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.224      ;
+; -4.296 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.224      ;
+; -4.296 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.224      ;
+; -4.296 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.224      ;
+; -4.296 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.224      ;
+; -4.294 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.222      ;
+; -4.294 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.222      ;
+; -4.294 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.222      ;
+; -4.294 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.222      ;
+; -4.294 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.222      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.287 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.072     ; 5.213      ;
+; -4.262 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[8]  ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.075     ; 5.185      ;
+; -4.262 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[8]  ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.075     ; 5.185      ;
+; -4.262 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[8]  ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.075     ; 5.185      ;
+; -4.262 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[8]  ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.075     ; 5.185      ;
+; -4.262 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[8]  ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.075     ; 5.185      ;
+; -4.252 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.180      ;
+; -4.252 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.180      ;
+; -4.252 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.180      ;
+; -4.252 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.180      ;
+; -4.252 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.180      ;
+; -4.249 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.069     ; 5.178      ;
+; -4.242 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.070     ; 5.170      ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'i_Clock'                                                                                                                                           ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                       ; To Node                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.393 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S5    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S5    ; i_Clock      ; i_Clock     ; 0.000        ; 0.090      ; 0.669      ;
+; 0.411 ; uart_tx:insttx|r_Tx_Active                      ; uart_tx:insttx|r_Tx_Active                      ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.669      ;
+; 0.411 ; uart_tx:insttx|r_Bit_Index[2]                   ; uart_tx:insttx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[4]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[4]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[20] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[20] ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[23] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[23] ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[6]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[6]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[22] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[22] ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[5]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[5]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[16] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[16] ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[0]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[0]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[3]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[3]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[18] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[18] ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[1]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[1]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_tx:insttx|r_SM_Main.s_TX_STOP_BIT          ; uart_tx:insttx|r_SM_Main.s_TX_STOP_BIT          ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_tx:insttx|r_Bit_Index[0]                   ; uart_tx:insttx|r_Bit_Index[0]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_tx:insttx|r_SM_Main.000                    ; uart_tx:insttx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|r_done                       ; interface0:i_dht11|r_done                       ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|state.read                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|r_done      ; interface0:i_dht11|DHT11:ints_dht11|r_done      ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|DIR         ; interface0:i_dht11|DHT11:ints_dht11|DIR         ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S7    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S7    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|STATE.STOP  ; interface0:i_dht11|DHT11:ints_dht11|STATE.STOP  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S8    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S8    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_Byte[6]                     ; uart_rx:instrx|r_Rx_Byte[6]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_Byte[7]                     ; uart_rx:instrx|r_Rx_Byte[7]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_Byte[4]                     ; uart_rx:instrx|r_Rx_Byte[4]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_Byte[5]                     ; uart_rx:instrx|r_Rx_Byte[5]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_Byte[1]                     ; uart_rx:instrx|r_Rx_Byte[1]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_Byte[2]                     ; uart_rx:instrx|r_Rx_Byte[2]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_Byte[0]                     ; uart_rx:instrx|r_Rx_Byte[0]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_Byte[3]                     ; uart_rx:instrx|r_Rx_Byte[3]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; selector:inst_selec|count.01                    ; selector:inst_selec|count.01                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Rx_DV                          ; uart_rx:instrx|r_Rx_DV                          ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_SM_Main.000                    ; uart_rx:instrx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_SM_Main.s_RX_DATA_BITS         ; uart_rx:instrx|r_SM_Main.s_RX_DATA_BITS         ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Bit_Index[2]                   ; uart_rx:instrx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_SM_Main.s_RX_STOP_BIT          ; uart_rx:instrx|r_SM_Main.s_RX_STOP_BIT          ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Bit_Index[0]                   ; uart_rx:instrx|r_Bit_Index[0]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.412 ; uart_rx:instrx|r_Bit_Index[1]                   ; uart_rx:instrx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.669      ;
+; 0.457 ; uart_tx:insttx|r_Clock_Count[11]                ; uart_tx:insttx|r_Clock_Count[11]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.714      ;
+; 0.460 ; uart_rx:instrx|r_Rx_Byte[4]                     ; selector:inst_selec|request[4]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.717      ;
+; 0.461 ; uart_rx:instrx|r_Rx_Byte[1]                     ; selector:inst_selec|request[1]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.718      ;
+; 0.466 ; uart_tx:insttx|r_SM_Main.s_CLEANUP              ; uart_tx:insttx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.723      ;
+; 0.468 ; uart_tx:insttx|r_Bit_Index[0]                   ; uart_tx:insttx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.725      ;
+; 0.476 ; interface0:i_dht11|r_Rst                        ; interface0:i_dht11|DHT11:ints_dht11|STATE.START ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.733      ;
+; 0.478 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S3    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S4    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.735      ;
+; 0.484 ; uart_rx:instrx|r_Rx_Data                        ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.741      ;
+; 0.486 ; uart_rx:instrx|r_Rx_Data                        ; uart_rx:instrx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.743      ;
+; 0.553 ; interface0:i_dht11|state.finish                 ; interface0:i_dht11|state.00                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.810      ;
+; 0.563 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; interface0:i_dht11|r_data_int[0]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.820      ;
+; 0.565 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; interface0:i_dht11|r_data_int[5]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.822      ;
+; 0.592 ; interface0:i_dht11|r_data_int[7]                ; uart_tx:insttx|r_Tx_Data[7]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.850      ;
+; 0.592 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S1    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S2    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.849      ;
+; 0.595 ; interface0:i_dht11|r_data_int[1]                ; uart_tx:insttx|r_Tx_Data[1]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.853      ;
+; 0.603 ; interface0:i_dht11|r_data_int[5]                ; uart_tx:insttx|r_Tx_Data[5]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.861      ;
+; 0.610 ; uart_rx:instrx|r_Rx_Data_R                      ; uart_rx:instrx|r_Rx_Data                        ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.867      ;
+; 0.613 ; uart_rx:instrx|r_Rx_Byte[6]                     ; selector:inst_selec|address[6]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.871      ;
+; 0.613 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.870      ;
+; 0.615 ; uart_rx:instrx|r_Rx_Byte[3]                     ; selector:inst_selec|address[3]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.873      ;
+; 0.618 ; uart_rx:instrx|r_Rx_Byte[5]                     ; selector:inst_selec|address[5]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.876      ;
+; 0.630 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|state.send                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.887      ;
+; 0.631 ; uart_rx:instrx|r_Rx_Byte[7]                     ; selector:inst_selec|request[7]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.888      ;
+; 0.631 ; uart_rx:instrx|r_Rx_Byte[3]                     ; selector:inst_selec|request[3]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.888      ;
+; 0.632 ; uart_rx:instrx|r_Rx_Byte[6]                     ; selector:inst_selec|request[6]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.889      ;
+; 0.632 ; uart_rx:instrx|r_Rx_Byte[5]                     ; selector:inst_selec|request[5]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.889      ;
+; 0.633 ; uart_rx:instrx|r_Rx_Byte[0]                     ; selector:inst_selec|request[0]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.890      ;
+; 0.635 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|r_done                       ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.892      ;
+; 0.642 ; uart_rx:instrx|r_Rx_Byte[2]                     ; selector:inst_selec|address[2]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.900      ;
+; 0.644 ; uart_rx:instrx|r_Rx_Byte[1]                     ; selector:inst_selec|address[1]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.072      ; 0.902      ;
+; 0.648 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; interface0:i_dht11|r_data_int[6]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.905      ;
+; 0.649 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; interface0:i_dht11|r_data_int[2]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.906      ;
+; 0.649 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.906      ;
+; 0.651 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; interface0:i_dht11|r_data_int[4]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.908      ;
+; 0.652 ; uart_tx:insttx|r_Clock_Count[3]                 ; uart_tx:insttx|r_Clock_Count[3]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.909      ;
+; 0.652 ; uart_tx:insttx|r_Clock_Count[10]                ; uart_tx:insttx|r_Clock_Count[10]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.909      ;
+; 0.652 ; uart_tx:insttx|r_Clock_Count[11]                ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.909      ;
+; 0.653 ; uart_tx:insttx|r_Clock_Count[9]                 ; uart_tx:insttx|r_Clock_Count[9]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.910      ;
+; 0.654 ; uart_tx:insttx|r_Clock_Count[2]                 ; uart_tx:insttx|r_Clock_Count[2]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.911      ;
+; 0.654 ; uart_tx:insttx|r_Clock_Count[5]                 ; uart_tx:insttx|r_Clock_Count[5]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.911      ;
+; 0.654 ; uart_tx:insttx|r_Clock_Count[8]                 ; uart_tx:insttx|r_Clock_Count[8]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.911      ;
+; 0.654 ; uart_tx:insttx|r_Clock_Count[1]                 ; uart_tx:insttx|r_Clock_Count[1]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.911      ;
+; 0.657 ; uart_tx:insttx|r_Clock_Count[4]                 ; uart_tx:insttx|r_Clock_Count[4]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.914      ;
+; 0.657 ; uart_tx:insttx|r_Clock_Count[6]                 ; uart_tx:insttx|r_Clock_Count[6]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.914      ;
+; 0.658 ; uart_rx:instrx|r_Clock_Count[1]                 ; uart_rx:instrx|r_Clock_Count[1]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.915      ;
+; 0.661 ; interface0:i_dht11|DHT11:ints_dht11|index[5]    ; interface0:i_dht11|DHT11:ints_dht11|index[5]    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.918      ;
+; 0.661 ; uart_rx:instrx|r_Clock_Count[4]                 ; uart_rx:instrx|r_Clock_Count[4]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.918      ;
+; 0.662 ; interface0:i_dht11|DHT11:ints_dht11|index[3]    ; interface0:i_dht11|DHT11:ints_dht11|index[3]    ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.919      ;
+; 0.664 ; uart_tx:insttx|r_Clock_Count[0]                 ; uart_tx:insttx|r_Clock_Count[0]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.921      ;
+; 0.664 ; uart_rx:instrx|r_Clock_Count[2]                 ; uart_rx:instrx|r_Clock_Count[2]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.921      ;
+; 0.665 ; uart_rx:instrx|r_Clock_Count[3]                 ; uart_rx:instrx|r_Clock_Count[3]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.922      ;
+; 0.665 ; uart_rx:instrx|r_Clock_Count[8]                 ; uart_rx:instrx|r_Clock_Count[8]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.071      ; 0.922      ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 195.08 MHz ; 195.08 MHz      ; i_Clock    ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++---------+--------+-----------------+
+; Clock   ; Slack  ; End Point TNS   ;
++---------+--------+-----------------+
+; i_Clock ; -4.126 ; -392.015        ;
++---------+--------+-----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++---------+-------+-----------------+
+; Clock   ; Slack ; End Point TNS   ;
++---------+-------+-----------------+
+; i_Clock ; 0.345 ; 0.000           ;
++---------+-------+-----------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++---------+--------+-------------------------------+
+; Clock   ; Slack  ; End Point TNS                 ;
++---------+--------+-------------------------------+
+; i_Clock ; -3.000 ; -207.315                      ;
++---------+--------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'i_Clock'                                                                                                                                            ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                       ; To Node                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.126 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 5.061      ;
+; -4.126 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 5.061      ;
+; -4.126 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 5.061      ;
+; -4.126 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 5.061      ;
+; -4.126 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 5.061      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.085 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 5.019      ;
+; -4.063 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.999      ;
+; -4.063 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.999      ;
+; -4.063 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.999      ;
+; -4.063 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.999      ;
+; -4.063 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.999      ;
+; -4.054 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.990      ;
+; -4.054 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.990      ;
+; -4.054 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.990      ;
+; -4.054 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.990      ;
+; -4.054 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.990      ;
+; -4.038 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.974      ;
+; -4.000 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[3]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.934      ;
+; -4.000 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[4]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.934      ;
+; -4.000 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[7]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.934      ;
+; -4.000 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[6]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.934      ;
+; -4.000 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[5]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.934      ;
+; -3.989 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.062     ; 4.926      ;
+; -3.980 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.062     ; 4.917      ;
+; -3.942 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.877      ;
+; -3.942 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.877      ;
+; -3.942 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.877      ;
+; -3.942 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.877      ;
+; -3.942 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.877      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.927 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.862      ;
+; -3.924 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.860      ;
+; -3.924 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.860      ;
+; -3.924 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.860      ;
+; -3.924 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.860      ;
+; -3.924 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.860      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.918 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.853      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.901 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.065     ; 4.835      ;
+; -3.899 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.835      ;
+; -3.899 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.835      ;
+; -3.899 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.835      ;
+; -3.899 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.835      ;
+; -3.899 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.835      ;
+; -3.896 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.832      ;
+; -3.896 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.832      ;
+; -3.896 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.832      ;
+; -3.896 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.832      ;
+; -3.896 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.832      ;
+; -3.880 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.816      ;
+; -3.880 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.816      ;
+; -3.880 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.816      ;
+; -3.880 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.816      ;
+; -3.880 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.816      ;
+; -3.854 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.790      ;
+; -3.850 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.062     ; 4.787      ;
+; -3.842 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[3]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.777      ;
+; -3.842 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[4]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.777      ;
+; -3.842 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[7]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.777      ;
+; -3.842 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[6]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.777      ;
+; -3.842 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[5]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.064     ; 4.777      ;
+; -3.841 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.777      ;
+; -3.841 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.777      ;
+; -3.841 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.777      ;
+; -3.841 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.777      ;
+; -3.841 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.063     ; 4.777      ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'i_Clock'                                                                                                                                            ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                       ; To Node                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.345 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S5    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S5    ; i_Clock      ; i_Clock     ; 0.000        ; 0.081      ; 0.597      ;
+; 0.361 ; uart_tx:insttx|r_SM_Main.s_TX_STOP_BIT          ; uart_tx:insttx|r_SM_Main.s_TX_STOP_BIT          ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.597      ;
+; 0.361 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.597      ;
+; 0.361 ; uart_tx:insttx|r_Bit_Index[0]                   ; uart_tx:insttx|r_Bit_Index[0]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.597      ;
+; 0.361 ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.597      ;
+; 0.361 ; uart_tx:insttx|r_SM_Main.000                    ; uart_tx:insttx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.597      ;
+; 0.361 ; interface0:i_dht11|DHT11:ints_dht11|r_done      ; interface0:i_dht11|DHT11:ints_dht11|r_done      ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.597      ;
+; 0.361 ; interface0:i_dht11|DHT11:ints_dht11|STATE.STOP  ; interface0:i_dht11|DHT11:ints_dht11|STATE.STOP  ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.597      ;
+; 0.361 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S8    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S8    ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.597      ;
+; 0.362 ; uart_tx:insttx|r_Tx_Active                      ; uart_tx:insttx|r_Tx_Active                      ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[4]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[4]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[20] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[20] ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[23] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[23] ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[6]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[6]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[22] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[22] ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[5]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[5]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[16] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[16] ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[0]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[0]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[3]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[3]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[18] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[18] ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[1]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[1]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_tx:insttx|r_Bit_Index[2]                   ; uart_tx:insttx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|r_done                       ; interface0:i_dht11|r_done                       ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|state.read                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|DIR         ; interface0:i_dht11|DHT11:ints_dht11|DIR         ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S7    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S7    ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_Byte[6]                     ; uart_rx:instrx|r_Rx_Byte[6]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_Byte[7]                     ; uart_rx:instrx|r_Rx_Byte[7]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_Byte[4]                     ; uart_rx:instrx|r_Rx_Byte[4]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_Byte[5]                     ; uart_rx:instrx|r_Rx_Byte[5]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_Byte[1]                     ; uart_rx:instrx|r_Rx_Byte[1]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_Byte[2]                     ; uart_rx:instrx|r_Rx_Byte[2]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_Byte[0]                     ; uart_rx:instrx|r_Rx_Byte[0]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_Byte[3]                     ; uart_rx:instrx|r_Rx_Byte[3]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; selector:inst_selec|count.01                    ; selector:inst_selec|count.01                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Rx_DV                          ; uart_rx:instrx|r_Rx_DV                          ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_SM_Main.000                    ; uart_rx:instrx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_SM_Main.s_RX_DATA_BITS         ; uart_rx:instrx|r_SM_Main.s_RX_DATA_BITS         ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Bit_Index[2]                   ; uart_rx:instrx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_SM_Main.s_RX_STOP_BIT          ; uart_rx:instrx|r_SM_Main.s_RX_STOP_BIT          ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Bit_Index[0]                   ; uart_rx:instrx|r_Bit_Index[0]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.362 ; uart_rx:instrx|r_Bit_Index[1]                   ; uart_rx:instrx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.597      ;
+; 0.412 ; uart_tx:insttx|r_Clock_Count[11]                ; uart_tx:insttx|r_Clock_Count[11]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.647      ;
+; 0.420 ; uart_tx:insttx|r_SM_Main.s_CLEANUP              ; uart_tx:insttx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.656      ;
+; 0.423 ; uart_rx:instrx|r_Rx_Byte[4]                     ; selector:inst_selec|request[4]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.658      ;
+; 0.424 ; uart_tx:insttx|r_Bit_Index[0]                   ; uart_tx:insttx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.660      ;
+; 0.425 ; uart_rx:instrx|r_Rx_Byte[1]                     ; selector:inst_selec|request[1]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.660      ;
+; 0.439 ; interface0:i_dht11|r_Rst                        ; interface0:i_dht11|DHT11:ints_dht11|STATE.START ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.674      ;
+; 0.440 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S3    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S4    ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.675      ;
+; 0.447 ; uart_rx:instrx|r_Rx_Data                        ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.682      ;
+; 0.449 ; uart_rx:instrx|r_Rx_Data                        ; uart_rx:instrx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.684      ;
+; 0.501 ; interface0:i_dht11|state.finish                 ; interface0:i_dht11|state.00                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.736      ;
+; 0.516 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; interface0:i_dht11|r_data_int[0]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.751      ;
+; 0.518 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; interface0:i_dht11|r_data_int[5]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.753      ;
+; 0.542 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S1    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S2    ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.778      ;
+; 0.544 ; interface0:i_dht11|r_data_int[7]                ; uart_tx:insttx|r_Tx_Data[7]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.066      ; 0.781      ;
+; 0.545 ; interface0:i_dht11|r_data_int[1]                ; uart_tx:insttx|r_Tx_Data[1]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.066      ; 0.782      ;
+; 0.549 ; interface0:i_dht11|r_data_int[5]                ; uart_tx:insttx|r_Tx_Data[5]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.066      ; 0.786      ;
+; 0.554 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.790      ;
+; 0.556 ; uart_rx:instrx|r_Rx_Data_R                      ; uart_rx:instrx|r_Rx_Data                        ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.791      ;
+; 0.562 ; uart_rx:instrx|r_Rx_Byte[6]                     ; selector:inst_selec|address[6]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.798      ;
+; 0.568 ; uart_rx:instrx|r_Rx_Byte[5]                     ; selector:inst_selec|address[5]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.804      ;
+; 0.568 ; uart_rx:instrx|r_Rx_Byte[3]                     ; selector:inst_selec|address[3]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.804      ;
+; 0.576 ; uart_rx:instrx|r_Rx_Byte[7]                     ; selector:inst_selec|request[7]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.811      ;
+; 0.576 ; uart_rx:instrx|r_Rx_Byte[3]                     ; selector:inst_selec|request[3]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.811      ;
+; 0.577 ; uart_rx:instrx|r_Rx_Byte[6]                     ; selector:inst_selec|request[6]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.812      ;
+; 0.577 ; uart_rx:instrx|r_Rx_Byte[5]                     ; selector:inst_selec|request[5]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.812      ;
+; 0.578 ; uart_rx:instrx|r_Rx_Byte[0]                     ; selector:inst_selec|request[0]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.813      ;
+; 0.588 ; uart_rx:instrx|r_Rx_Byte[2]                     ; selector:inst_selec|address[2]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.824      ;
+; 0.590 ; uart_rx:instrx|r_Rx_Byte[1]                     ; selector:inst_selec|address[1]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.065      ; 0.826      ;
+; 0.591 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|state.send                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.826      ;
+; 0.592 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; interface0:i_dht11|r_data_int[6]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.827      ;
+; 0.593 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; interface0:i_dht11|r_data_int[2]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.828      ;
+; 0.594 ; uart_tx:insttx|r_Clock_Count[10]                ; uart_tx:insttx|r_Clock_Count[10]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.829      ;
+; 0.596 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; interface0:i_dht11|r_data_int[4]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.831      ;
+; 0.596 ; uart_tx:insttx|r_Clock_Count[2]                 ; uart_tx:insttx|r_Clock_Count[2]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.831      ;
+; 0.596 ; uart_tx:insttx|r_Clock_Count[3]                 ; uart_tx:insttx|r_Clock_Count[3]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.831      ;
+; 0.596 ; uart_tx:insttx|r_Clock_Count[8]                 ; uart_tx:insttx|r_Clock_Count[8]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.831      ;
+; 0.597 ; uart_tx:insttx|r_Clock_Count[9]                 ; uart_tx:insttx|r_Clock_Count[9]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.832      ;
+; 0.597 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|r_done                       ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.832      ;
+; 0.598 ; uart_tx:insttx|r_Clock_Count[5]                 ; uart_tx:insttx|r_Clock_Count[5]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.833      ;
+; 0.598 ; uart_tx:insttx|r_Clock_Count[1]                 ; uart_tx:insttx|r_Clock_Count[1]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.833      ;
+; 0.600 ; uart_tx:insttx|r_Clock_Count[4]                 ; uart_tx:insttx|r_Clock_Count[4]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.835      ;
+; 0.600 ; uart_tx:insttx|r_Clock_Count[6]                 ; uart_tx:insttx|r_Clock_Count[6]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.835      ;
+; 0.600 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.835      ;
+; 0.602 ; uart_rx:instrx|r_Clock_Count[1]                 ; uart_rx:instrx|r_Clock_Count[1]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.837      ;
+; 0.602 ; uart_tx:insttx|r_Clock_Count[11]                ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.837      ;
+; 0.603 ; interface0:i_dht11|DHT11:ints_dht11|index[5]    ; interface0:i_dht11|DHT11:ints_dht11|index[5]    ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.838      ;
+; 0.603 ; uart_rx:instrx|r_Clock_Count[4]                 ; uart_rx:instrx|r_Clock_Count[4]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.838      ;
+; 0.605 ; interface0:i_dht11|DHT11:ints_dht11|index[3]    ; interface0:i_dht11|DHT11:ints_dht11|index[3]    ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.840      ;
+; 0.606 ; uart_rx:instrx|r_Clock_Count[2]                 ; uart_rx:instrx|r_Clock_Count[2]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.841      ;
+; 0.607 ; uart_tx:insttx|r_Clock_Count[0]                 ; uart_tx:insttx|r_Clock_Count[0]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.842      ;
+; 0.607 ; uart_rx:instrx|r_Clock_Count[8]                 ; uart_rx:instrx|r_Clock_Count[8]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.842      ;
+; 0.608 ; uart_rx:instrx|r_Clock_Count[3]                 ; uart_rx:instrx|r_Clock_Count[3]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.064      ; 0.843      ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++---------+--------+-----------------+
+; Clock   ; Slack  ; End Point TNS   ;
++---------+--------+-----------------+
+; i_Clock ; -1.697 ; -136.864        ;
++---------+--------+-----------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++---------+-------+-----------------+
+; Clock   ; Slack ; End Point TNS   ;
++---------+-------+-----------------+
+; i_Clock ; 0.179 ; 0.000           ;
++---------+-------+-----------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++---------+--------+-------------------------------+
+; Clock   ; Slack  ; End Point TNS                 ;
++---------+--------+-------------------------------+
+; i_Clock ; -3.000 ; -170.729                      ;
++---------+--------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'i_Clock'                                                                                                                                            ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                       ; To Node                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.697 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.648      ;
+; -1.697 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.648      ;
+; -1.697 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.648      ;
+; -1.697 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.648      ;
+; -1.697 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.648      ;
+; -1.696 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.647      ;
+; -1.696 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.647      ;
+; -1.696 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.647      ;
+; -1.696 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.647      ;
+; -1.696 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.647      ;
+; -1.684 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.634      ;
+; -1.684 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.634      ;
+; -1.684 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.634      ;
+; -1.684 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.634      ;
+; -1.684 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.634      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.657 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.606      ;
+; -1.656 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.035     ; 2.608      ;
+; -1.655 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.035     ; 2.607      ;
+; -1.625 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.576      ;
+; -1.617 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.567      ;
+; -1.616 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.566      ;
+; -1.616 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.566      ;
+; -1.615 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.565      ;
+; -1.614 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.564      ;
+; -1.613 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.563      ;
+; -1.613 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.563      ;
+; -1.613 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.563      ;
+; -1.612 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.562      ;
+; -1.612 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.562      ;
+; -1.612 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.562      ;
+; -1.612 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.562      ;
+; -1.611 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.561      ;
+; -1.611 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.561      ;
+; -1.611 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.561      ;
+; -1.611 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.561      ;
+; -1.611 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.561      ;
+; -1.610 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.560      ;
+; -1.610 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.560      ;
+; -1.610 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.560      ;
+; -1.609 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.560      ;
+; -1.609 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.560      ;
+; -1.609 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.560      ;
+; -1.609 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.560      ;
+; -1.609 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.560      ;
+; -1.607 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.558      ;
+; -1.607 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.558      ;
+; -1.607 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.558      ;
+; -1.607 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.558      ;
+; -1.607 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.558      ;
+; -1.606 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.557      ;
+; -1.606 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.557      ;
+; -1.606 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.557      ;
+; -1.606 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.557      ;
+; -1.606 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.557      ;
+; -1.595 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.546      ;
+; -1.595 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.546      ;
+; -1.595 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.546      ;
+; -1.595 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.546      ;
+; -1.595 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.546      ;
+; -1.590 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[3]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.541      ;
+; -1.590 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[4]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.541      ;
+; -1.590 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[7]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.541      ;
+; -1.590 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[6]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.541      ;
+; -1.590 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[5]  ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.541      ;
+; -1.586 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.536      ;
+; -1.586 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.536      ;
+; -1.586 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.536      ;
+; -1.586 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.536      ;
+; -1.586 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.037     ; 2.536      ;
+; -1.576 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.527      ;
+; -1.576 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.527      ;
+; -1.576 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.527      ;
+; -1.576 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.527      ;
+; -1.576 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[11] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.527      ;
+; -1.568 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.035     ; 2.520      ;
+; -1.566 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.035     ; 2.518      ;
+; -1.565 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.035     ; 2.517      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[23] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[22] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[21] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[19] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[17] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[15] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[13] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.559 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[12] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[14] ; i_Clock      ; i_Clock     ; 1.000        ; -0.038     ; 2.508      ;
+; -1.554 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[16] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[24] ; i_Clock      ; i_Clock     ; 1.000        ; -0.035     ; 2.506      ;
+; -1.551 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[25] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.502      ;
+; -1.551 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[18] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.502      ;
+; -1.551 ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[20] ; interface0:i_dht11|DHT11:ints_dht11|COUNTER[10] ; i_Clock      ; i_Clock     ; 1.000        ; -0.036     ; 2.502      ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'i_Clock'                                                                                                                                            ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                       ; To Node                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.179 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S5    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S5    ; i_Clock      ; i_Clock     ; 0.000        ; 0.044      ; 0.307      ;
+; 0.186 ; uart_tx:insttx|r_Tx_Active                      ; uart_tx:insttx|r_Tx_Active                      ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[4]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[4]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[20] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[20] ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[22] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[22] ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[16] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[16] ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; uart_tx:insttx|r_Bit_Index[2]                   ; uart_tx:insttx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; interface0:i_dht11|DHT11:ints_dht11|r_done      ; interface0:i_dht11|DHT11:ints_dht11|r_done      ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; interface0:i_dht11|DHT11:ints_dht11|DIR         ; interface0:i_dht11|DHT11:ints_dht11|DIR         ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; interface0:i_dht11|DHT11:ints_dht11|STATE.STOP  ; interface0:i_dht11|DHT11:ints_dht11|STATE.STOP  ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S8    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S8    ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[23] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[23] ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[6]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[6]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[5]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[5]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[0]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[0]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[3]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[3]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[18] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[18] ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[1]  ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[1]  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_tx:insttx|r_SM_Main.s_TX_STOP_BIT          ; uart_tx:insttx|r_SM_Main.s_TX_STOP_BIT          ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_tx:insttx|r_Bit_Index[0]                   ; uart_tx:insttx|r_Bit_Index[0]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_tx:insttx|r_SM_Main.000                    ; uart_tx:insttx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|r_done                       ; interface0:i_dht11|r_done                       ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|state.read                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S7    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S7    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_Byte[6]                     ; uart_rx:instrx|r_Rx_Byte[6]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_Byte[7]                     ; uart_rx:instrx|r_Rx_Byte[7]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_Byte[4]                     ; uart_rx:instrx|r_Rx_Byte[4]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_Byte[5]                     ; uart_rx:instrx|r_Rx_Byte[5]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_Byte[1]                     ; uart_rx:instrx|r_Rx_Byte[1]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_Byte[2]                     ; uart_rx:instrx|r_Rx_Byte[2]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_Byte[0]                     ; uart_rx:instrx|r_Rx_Byte[0]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_Byte[3]                     ; uart_rx:instrx|r_Rx_Byte[3]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; selector:inst_selec|count.01                    ; selector:inst_selec|count.01                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Rx_DV                          ; uart_rx:instrx|r_Rx_DV                          ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_SM_Main.000                    ; uart_rx:instrx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_SM_Main.s_RX_DATA_BITS         ; uart_rx:instrx|r_SM_Main.s_RX_DATA_BITS         ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Bit_Index[2]                   ; uart_rx:instrx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_SM_Main.s_RX_STOP_BIT          ; uart_rx:instrx|r_SM_Main.s_RX_STOP_BIT          ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Bit_Index[0]                   ; uart_rx:instrx|r_Bit_Index[0]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; uart_rx:instrx|r_Bit_Index[1]                   ; uart_rx:instrx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.307      ;
+; 0.205 ; uart_rx:instrx|r_Rx_Byte[4]                     ; selector:inst_selec|request[4]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.325      ;
+; 0.206 ; uart_rx:instrx|r_Rx_Byte[1]                     ; selector:inst_selec|request[1]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.326      ;
+; 0.207 ; uart_tx:insttx|r_Clock_Count[11]                ; uart_tx:insttx|r_Clock_Count[11]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.327      ;
+; 0.214 ; interface0:i_dht11|r_Rst                        ; interface0:i_dht11|DHT11:ints_dht11|STATE.START ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.334      ;
+; 0.216 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S3    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S4    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.336      ;
+; 0.217 ; uart_tx:insttx|r_Bit_Index[0]                   ; uart_tx:insttx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.337      ;
+; 0.217 ; uart_tx:insttx|r_SM_Main.s_CLEANUP              ; uart_tx:insttx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.337      ;
+; 0.220 ; uart_rx:instrx|r_Rx_Data                        ; uart_rx:instrx|r_SM_Main.s_RX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.340      ;
+; 0.221 ; uart_rx:instrx|r_Rx_Data                        ; uart_rx:instrx|r_SM_Main.000                    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.341      ;
+; 0.252 ; interface0:i_dht11|state.finish                 ; interface0:i_dht11|state.00                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.372      ;
+; 0.254 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[7]  ; interface0:i_dht11|r_data_int[0]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.374      ;
+; 0.255 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[2]  ; interface0:i_dht11|r_data_int[5]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.375      ;
+; 0.257 ; interface0:i_dht11|r_data_int[1]                ; uart_tx:insttx|r_Tx_Data[1]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.378      ;
+; 0.257 ; interface0:i_dht11|r_data_int[7]                ; uart_tx:insttx|r_Tx_Data[7]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.378      ;
+; 0.261 ; interface0:i_dht11|r_data_int[5]                ; uart_tx:insttx|r_Tx_Data[5]                     ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.382      ;
+; 0.267 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S1    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S2    ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.388      ;
+; 0.267 ; uart_rx:instrx|r_Rx_Byte[6]                     ; selector:inst_selec|address[6]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.388      ;
+; 0.267 ; uart_rx:instrx|r_Rx_Data_R                      ; uart_rx:instrx|r_Rx_Data                        ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.387      ;
+; 0.270 ; uart_rx:instrx|r_Rx_Byte[3]                     ; selector:inst_selec|address[3]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.391      ;
+; 0.271 ; uart_rx:instrx|r_Rx_Byte[5]                     ; selector:inst_selec|address[5]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.392      ;
+; 0.276 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|state.send                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.396      ;
+; 0.278 ; uart_rx:instrx|r_Rx_Byte[3]                     ; selector:inst_selec|request[3]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.398      ;
+; 0.279 ; uart_rx:instrx|r_Rx_Byte[7]                     ; selector:inst_selec|request[7]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.399      ;
+; 0.279 ; uart_rx:instrx|r_Rx_Byte[5]                     ; selector:inst_selec|request[5]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.399      ;
+; 0.279 ; uart_rx:instrx|r_Rx_Byte[2]                     ; selector:inst_selec|address[2]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.400      ;
+; 0.280 ; uart_rx:instrx|r_Rx_Byte[6]                     ; selector:inst_selec|request[6]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.400      ;
+; 0.280 ; uart_rx:instrx|r_Rx_Byte[1]                     ; selector:inst_selec|address[1]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.037      ; 0.401      ;
+; 0.280 ; uart_rx:instrx|r_Rx_Byte[0]                     ; selector:inst_selec|request[0]                  ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.400      ;
+; 0.281 ; interface0:i_dht11|state.read                   ; interface0:i_dht11|r_done                       ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.401      ;
+; 0.285 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_Bit_Index[1]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.405      ;
+; 0.287 ; uart_tx:insttx|r_SM_Main.s_TX_DATA_BITS         ; uart_tx:insttx|r_Bit_Index[2]                   ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.407      ;
+; 0.296 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[17] ; interface0:i_dht11|r_data_int[6]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.416      ;
+; 0.296 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[21] ; interface0:i_dht11|r_data_int[2]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.416      ;
+; 0.296 ; uart_tx:insttx|r_Clock_Count[11]                ; uart_tx:insttx|r_SM_Main.s_TX_START_BIT         ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.416      ;
+; 0.298 ; interface0:i_dht11|DHT11:ints_dht11|INTDATA[19] ; interface0:i_dht11|r_data_int[4]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.418      ;
+; 0.298 ; uart_tx:insttx|r_Clock_Count[10]                ; uart_tx:insttx|r_Clock_Count[10]                ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.418      ;
+; 0.298 ; interface0:i_dht11|DHT11:ints_dht11|STATE.S4    ; interface0:i_dht11|DHT11:ints_dht11|STATE.S5    ; i_Clock      ; i_Clock     ; 0.000        ; 0.246      ; 0.628      ;
+; 0.299 ; uart_tx:insttx|r_Clock_Count[2]                 ; uart_tx:insttx|r_Clock_Count[2]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.419      ;
+; 0.299 ; uart_tx:insttx|r_Clock_Count[3]                 ; uart_tx:insttx|r_Clock_Count[3]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.419      ;
+; 0.299 ; uart_tx:insttx|r_Clock_Count[5]                 ; uart_tx:insttx|r_Clock_Count[5]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.419      ;
+; 0.299 ; uart_tx:insttx|r_Clock_Count[9]                 ; uart_tx:insttx|r_Clock_Count[9]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.419      ;
+; 0.300 ; uart_tx:insttx|r_Clock_Count[4]                 ; uart_tx:insttx|r_Clock_Count[4]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.420      ;
+; 0.300 ; uart_tx:insttx|r_Clock_Count[8]                 ; uart_tx:insttx|r_Clock_Count[8]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.420      ;
+; 0.300 ; uart_tx:insttx|r_Clock_Count[1]                 ; uart_tx:insttx|r_Clock_Count[1]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.420      ;
+; 0.301 ; uart_tx:insttx|r_Clock_Count[6]                 ; uart_tx:insttx|r_Clock_Count[6]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.421      ;
+; 0.303 ; uart_tx:insttx|r_Clock_Count[0]                 ; uart_tx:insttx|r_Clock_Count[0]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.423      ;
+; 0.303 ; interface0:i_dht11|DHT11:ints_dht11|index[5]    ; interface0:i_dht11|DHT11:ints_dht11|index[5]    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.423      ;
+; 0.304 ; interface0:i_dht11|DHT11:ints_dht11|index[3]    ; interface0:i_dht11|DHT11:ints_dht11|index[3]    ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.424      ;
+; 0.304 ; uart_rx:instrx|r_Clock_Count[1]                 ; uart_rx:instrx|r_Clock_Count[1]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.424      ;
+; 0.304 ; uart_rx:instrx|r_Clock_Count[4]                 ; uart_rx:instrx|r_Clock_Count[4]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.424      ;
+; 0.305 ; uart_rx:instrx|r_Clock_Count[2]                 ; uart_rx:instrx|r_Clock_Count[2]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; uart_rx:instrx|r_Clock_Count[3]                 ; uart_rx:instrx|r_Clock_Count[3]                 ; i_Clock      ; i_Clock     ; 0.000        ; 0.036      ; 0.425      ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -4.549   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
+;  i_Clock         ; -4.549   ; 0.179 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -441.837 ; 0.0   ; 0.0      ; 0.0     ; -207.315            ;
+;  i_Clock         ; -441.837 ; 0.000 ; N/A      ; N/A     ; -207.315            ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; o_Tx_Active   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; o_Tx_Serial   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; o_Tx_Done     ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; dht_data_int  ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; dht_data_int            ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; i_Clock                 ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; i_Rx_Serial             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; o_Tx_Active   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.16e-09 V                   ; 2.37 V              ; -0.0165 V           ; 0.189 V                              ; 0.04 V                               ; 5e-10 s                     ; 5.07e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.16e-09 V                  ; 2.37 V             ; -0.0165 V          ; 0.189 V                             ; 0.04 V                              ; 5e-10 s                    ; 5.07e-10 s                 ; Yes                       ; Yes                       ;
+; o_Tx_Serial   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.16e-09 V                   ; 2.33 V              ; -0.00468 V          ; 0.21 V                               ; 0.091 V                              ; 3.11e-09 s                  ; 2.96e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.16e-09 V                  ; 2.33 V             ; -0.00468 V         ; 0.21 V                              ; 0.091 V                             ; 3.11e-09 s                 ; 2.96e-09 s                 ; Yes                       ; Yes                       ;
+; o_Tx_Done     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.16e-09 V                   ; 2.36 V              ; -0.0176 V           ; 0.164 V                              ; 0.043 V                              ; 6.98e-10 s                  ; 6.79e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.16e-09 V                  ; 2.36 V             ; -0.0176 V          ; 0.164 V                             ; 0.043 V                             ; 6.98e-10 s                 ; 6.79e-10 s                 ; Yes                       ; Yes                       ;
+; dht_data_int  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-09 V                   ; 2.38 V              ; -0.0235 V           ; 0.106 V                              ; 0.042 V                              ; 4.25e-10 s                  ; 3.7e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 4.72e-09 V                  ; 2.38 V             ; -0.0235 V          ; 0.106 V                             ; 0.042 V                             ; 4.25e-10 s                 ; 3.7e-10 s                  ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.79e-09 V                   ; 2.37 V              ; -0.0226 V           ; 0.146 V                              ; 0.053 V                              ; 4.8e-10 s                   ; 4.31e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.79e-09 V                  ; 2.37 V             ; -0.0226 V          ; 0.146 V                             ; 0.053 V                             ; 4.8e-10 s                  ; 4.31e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.29e-09 V                   ; 2.36 V              ; -0.00431 V          ; 0.132 V                              ; 0.013 V                              ; 6.77e-10 s                  ; 8.36e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.29e-09 V                  ; 2.36 V             ; -0.00431 V         ; 0.132 V                             ; 0.013 V                             ; 6.77e-10 s                 ; 8.36e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; o_Tx_Active   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-07 V                   ; 2.35 V              ; -0.00786 V          ; 0.123 V                              ; 0.034 V                              ; 6.66e-10 s                  ; 6.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.72e-07 V                  ; 2.35 V             ; -0.00786 V         ; 0.123 V                             ; 0.034 V                             ; 6.66e-10 s                 ; 6.45e-10 s                 ; Yes                       ; Yes                       ;
+; o_Tx_Serial   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-07 V                   ; 2.33 V              ; -0.00237 V          ; 0.107 V                              ; 0.064 V                              ; 3.75e-09 s                  ; 3.57e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.72e-07 V                  ; 2.33 V             ; -0.00237 V         ; 0.107 V                             ; 0.064 V                             ; 3.75e-09 s                 ; 3.57e-09 s                 ; Yes                       ; Yes                       ;
+; o_Tx_Done     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 4.72e-07 V                   ; 2.34 V              ; -0.00805 V          ; 0.127 V                              ; 0.042 V                              ; 8.78e-10 s                  ; 8.46e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 4.72e-07 V                  ; 2.34 V             ; -0.00805 V         ; 0.127 V                             ; 0.042 V                             ; 8.78e-10 s                 ; 8.46e-10 s                 ; Yes                       ; Yes                       ;
+; dht_data_int  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.01e-07 V                   ; 2.35 V              ; -0.00481 V          ; 0.132 V                              ; 0.018 V                              ; 4.65e-10 s                  ; 4.68e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.01e-07 V                  ; 2.35 V             ; -0.00481 V         ; 0.132 V                             ; 0.018 V                             ; 4.65e-10 s                 ; 4.68e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 3.7e-07 V                    ; 2.35 V              ; -0.00826 V          ; 0.089 V                              ; 0.034 V                              ; 6.08e-10 s                  ; 5.11e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 3.7e-07 V                   ; 2.35 V             ; -0.00826 V         ; 0.089 V                             ; 0.034 V                             ; 6.08e-10 s                 ; 5.11e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 6.08e-07 V                   ; 2.34 V              ; -0.00367 V          ; 0.099 V                              ; 0.024 V                              ; 7.72e-10 s                  ; 1.04e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 6.08e-07 V                  ; 2.34 V             ; -0.00367 V         ; 0.099 V                             ; 0.024 V                             ; 7.72e-10 s                 ; 1.04e-09 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; o_Tx_Active   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.72 V              ; -0.0386 V           ; 0.161 V                              ; 0.078 V                              ; 4.51e-10 s                  ; 4.33e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.72 V             ; -0.0386 V          ; 0.161 V                             ; 0.078 V                             ; 4.51e-10 s                 ; 4.33e-10 s                 ; No                        ; Yes                       ;
+; o_Tx_Serial   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.64 V              ; -0.0107 V           ; 0.241 V                              ; 0.161 V                              ; 2.42e-09 s                  ; 2.37e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.64 V             ; -0.0107 V          ; 0.241 V                             ; 0.161 V                             ; 2.42e-09 s                 ; 2.37e-09 s                 ; No                        ; Yes                       ;
+; o_Tx_Done     ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0338 V           ; 0.25 V                               ; 0.066 V                              ; 4.98e-10 s                  ; 5.2e-10 s                   ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0338 V          ; 0.25 V                              ; 0.066 V                             ; 4.98e-10 s                 ; 5.2e-10 s                  ; No                        ; Yes                       ;
+; dht_data_int  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.72 V              ; -0.0549 V           ; 0.19 V                               ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.72 V             ; -0.0549 V          ; 0.19 V                              ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.19e-08 V                   ; 2.71 V              ; -0.0718 V           ; 0.277 V                              ; 0.167 V                              ; 3.12e-10 s                  ; 3.02e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.19e-08 V                  ; 2.71 V             ; -0.0718 V          ; 0.277 V                             ; 0.167 V                             ; 3.12e-10 s                 ; 3.02e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.52e-08 V                   ; 2.7 V               ; -0.0198 V           ; 0.2 V                                ; 0.049 V                              ; 4.85e-10 s                  ; 6.73e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 3.52e-08 V                  ; 2.7 V              ; -0.0198 V          ; 0.2 V                               ; 0.049 V                             ; 4.85e-10 s                 ; 6.73e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; i_Clock    ; i_Clock  ; 8641     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; i_Clock    ; i_Clock  ; 8641     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 60    ; 60   ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 5     ; 5    ;
++---------------------------------+-------+------+
+
+
++----------------------------------------+
+; Clock Status Summary                   ;
++---------+---------+------+-------------+
+; Target  ; Clock   ; Type ; Status      ;
++---------+---------+------+-------------+
+; i_Clock ; i_Clock ; Base ; Constrained ;
++---------+---------+------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                           ;
++--------------+--------------------------------------------------------------------------------------+
+; Input Port   ; Comment                                                                              ;
++--------------+--------------------------------------------------------------------------------------+
+; dht_data_int ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i_Rx_Serial  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                           ;
++--------------+---------------------------------------------------------------------------------------+
+; Output Port  ; Comment                                                                               ;
++--------------+---------------------------------------------------------------------------------------+
+; dht_data_int ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; o_Tx_Active  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; o_Tx_Done    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; o_Tx_Serial  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+---------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                           ;
++--------------+--------------------------------------------------------------------------------------+
+; Input Port   ; Comment                                                                              ;
++--------------+--------------------------------------------------------------------------------------+
+; dht_data_int ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; i_Rx_Serial  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                           ;
++--------------+---------------------------------------------------------------------------------------+
+; Output Port  ; Comment                                                                               ;
++--------------+---------------------------------------------------------------------------------------+
+; dht_data_int ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; o_Tx_Active  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; o_Tx_Done    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; o_Tx_Serial  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Mon May 23 13:13:08 2022
+Info: Command: quartus_sta pbl02 -c pbl02
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'pbl02.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name i_Clock i_Clock
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.549
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.549            -441.837 i_Clock 
+Info (332146): Worst-case hold slack is 0.393
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.393               0.000 i_Clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -207.315 i_Clock 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.126
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.126            -392.015 i_Clock 
+Info (332146): Worst-case hold slack is 0.345
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.345               0.000 i_Clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -207.315 i_Clock 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.697
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.697            -136.864 i_Clock 
+Info (332146): Worst-case hold slack is 0.179
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.179               0.000 i_Clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000            -170.729 i_Clock 
+Info (332114): Report Metastability: Found 1 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4785 megabytes
+    Info: Processing ended: Mon May 23 13:13:10 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

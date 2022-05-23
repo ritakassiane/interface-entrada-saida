@@ -1,0 +1,75 @@
+module main2(
+   input        i_Clock,
+   input        i_Rx_Serial,
+	inout			 dht_data_int,
+   output 	    o_Tx_Active,
+   output 		 o_Tx_Serial,
+   output       o_Tx_Done,
+	output 		 blue,
+	output		 green,
+	output		 red,
+	output [4:0] coluna,
+	output [7:0] linhas	
+);
+	wire 			 o_Rx_DV;
+   wire [7:0]   o_Rx_Byte;
+	wire [7:0]   o_request;
+	wire [31:0]  o_interface;
+	wire [7:0]   o_data_int;
+	wire [7:0] 	 o_data_float;
+	wire  		 o_done_i1;
+	reg			 r_green = 1'b0;
+	reg			 r_red = 1'b0;
+	reg [4:0]    r_coluna = 5'b00000;
+	wire[7:0]    o_sendByte;
+	wire			 o_dones;
+	reg			 t_blue = 1'b0;
+	
+	
+	
+uart_rx instrx(
+	.i_Clock(i_Clock),
+   .i_Rx_Serial(i_Rx_Serial),
+   .o_Rx_DV(o_Rx_DV),
+   .o_Rx_Byte(o_Rx_Byte)
+
+);
+
+selector inst_selec(
+	.i_Clock(i_Clock),
+	.i_Data(o_Rx_Byte),
+	.i_Data_Done(o_Rx_DV),
+	.o_request(o_request),
+	.o_interface(o_interface)
+
+);
+
+interface2 i_dht11(
+	.i_Clock(i_Clock),
+	.i_En(o_interface[0]),
+	.i_request(o_request),
+	.dht_data_int(dht_data_int),
+	.o_data_int(o_data_int),
+	.o_data_float(o_data_float),
+	.o_done_i1(o_done_i1),
+	//.blue(blue),
+	.inteiro(linhas)
+);
+
+uart_tx insttx(
+	.i_Clock(i_Clock),
+	.i_Tx_DV(o_done_i1),
+	.i_Tx_Byte (dht_data_int), 
+   .o_Tx_Active(o_Tx_Active),
+   .o_Tx_Serial(o_Tx_Serial),
+   .o_Tx_Done(o_Tx_Done)
+	
+);
+
+
+
+	assign		red = r_red;
+	assign		green = r_green;
+	//assign		blue  = o_done_i1;
+
+endmodule 
