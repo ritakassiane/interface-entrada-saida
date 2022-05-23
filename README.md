@@ -39,13 +39,13 @@ Pensando nisso,
 <div id="diagrama">
 	<h1> <a href="https://www.figma.com/proto/MKDfCcjhxhD78d0mm3sMHW/Diagrama_Problema02?node-id=103%3A218&scaling=contain&page-id=0%3A1&starting-point-node-id=103%3A218" target="_blank">Diagrama</a>  </h1>
 		<div id="image01" style="display: inline_block" align="center">
-		<img src="/Diagrama01.png"/>
+		<img src="images/Diagrama01.png"/>
 		<p>
 			Diagrama geral do sistema desenvolvido
 		</p>
 		</div>
 		<div id="image02" style="display: inline_block" align="center">
-		<img src="/Diagrama02.png"/>
+		<img src="images/Diagrama02.png"/>
 		<p>
 			Diagrama do sistema desenvolvido
 		</p>
@@ -165,9 +165,31 @@ Nesse estado, uma estrutura condicional verifica se a entrada de dados TX_DV rec
 <div id="dht11">
 	<h1> Recebendo dados do sensor </h1>
 	<p>
-	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
-	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
+		Uma máquina de estados controla o funcionamento do sensor DHT11, e tem o ínicio de sua execução quando este módulo recebe nível alto lógico no pino de entrada denominado Enable.
+		Posteriormente, verifica se a entrada de RST não está ativa. Em caso afirmativo, entra-se no estado START. Caso RST receba nível lógico alto, a máquina deve ser resetada e depois enviada para o estado de START.
+		A FSM possui 12 estados. Sendo esses:
 	</p>
+	<ul>
+		<li>START: Irá indicar o estado da máquina como ocupado e a direção do pino birecional como saída de dados. Posteriormente, segue-se para o estado S0.
+</li>
+		<li>S0: Consultando a documentação do DHT11, é possível inferir que para sinalizar para este sensor que deseja-se inicializar uma aquisição de dados, deve-se setar o pino DHT_DATA como nível lógico alto, posteriormente, coloca-se este em nível lógico baixo por 18ms e seguidamente, coloca-se em nivel logico alto novamente. 
+Por esse motivo, o estado S0 possui um contador, o qual, depois que alcança 900.000 ciclos de clock, envia a máquina para o próximo estágio.
+[imagem da documentacao]
+ </li>
+		<li>S1: Nesse estado, seta-se DHT_DATA como 0, altera a direção do pino (que antes era de envio e agora será de recepção de dados) e novamente, aguarda-se 18ms e posteriormente, envia-se para o estado S2
+Simboliza a borda de descida do sinal em que o SBC envia para o sensor, espera por mais 900000 clocks, e segue para o próximo estágio.
+ </li>
+		<li>
+S2: Aguarda 20us ou 1000 ciclos de clock (tempo de resposta do sensor) e em seguida, deta DHT_DATA como nivel logico alto, para indicar a direção de entrada de dados. Posteriormente, a FSM vai para o estagio S3. </li>
+		<li>S3: Enquanto o contador não alcança a marca de 60us e e o pino de entrada de dados do sensor estiver alto, a maquina se mantem nesse estado. Se esse tempo for excedido e o pino de entrada não mudar para nivel lógico baixo, sinaliza-se um erro. Caso contrário, segue-se para o estado S4. </li>
+		<li>S4: A FSM se mantém nesse estado enquanto não ocorre 4400 ciclos de clock (80us), o qual equivale ao tempo para o pulso de sincronismo acontecer. Caso este sinal seja recebido, segue para o próximo estágio. </li>
+		<li>S5: Estado que simboliza o tempo de espera em que aguardamos para o sensor nos enviar o seu pulso de sincronismo, neste caso, a borda de descida. Aguardamos por 4400 ciclos de clock. Caso o sinal de sincronismo ainda esteja alto, segue para o estado de erro. Caso ele já esteja baixo, segue para o próximo estado. </li>
+		<li>S6: Se o sinal do sensor DHT11 estiver baixo, segue para o próximo estado. Caso seja alto, vá para o estado de erro. </li>
+		<li>S7: Espera o sinal de dados do DHT11 por 1600000 ciclos de clock, caso esse contador chegue ao fim, vá para o estado de erro. Se chegou algum sinal do DHT11, vá para o próximo estado. </li>
+		<li>S8: Estado que simboliza a decisão entre 0 e 1 do sinal que chega do DHT11, e o insere em sua posição correta (40 bits). Também verifica se nenhum bit chegou, nesses casos, segue para o estado de erro. Caso o contador ainda seja menor que 39 (número de bits que o DHT11 envia, começando do Bit 0), vá para o estado S9. Caso seja maior ou igual a 39, segue para o estado de erro. </li>
+		<li>
+S9: Soma 1 ao contador que indica qual posição do Bit e segue para o estado S6. </li>
+	</ul>
 </div>
 
 <div id="interface">
