@@ -231,9 +231,51 @@ S9: Soma 1 ao contador que indica qual posição do Bit e segue para o estado S6
 <div id="executando">
 	<h1> Programa em execução</h1>
 	<div id="image01" style="display: inline_block" align="center">
-			<img src="images/pins-les.jpeg"/><br>
+		<img src="images/01.jpeg"/><br>
 		<p>
-			
+			Tela de seleção de ações possíveis	
+		</p>
+	</div>
+	<div id="image01" style="display: inline_block" align="center">
+		<img src="images/02.jpeg"/><br>
+		<p>
+			Selecionar sensor	
+		</p>
+	</div>
+	<div id="image01" style="display: inline_block" align="center">
+		<img src="images/03.jpeg"/><br>
+		<p>
+			Estado atual do sensor	
+		</p>
+	</div>
+	<div id="image01" style="display: inline_block" align="center">
+		<img src="images/04.jpeg"/><br>
+		<p>
+			Temperatura medida pelo sensor	
+		</p>
+	</div>
+	<div id="image01" style="display: inline_block" align="center">
+		<img src="images/05.jpeg"/><br>
+		<p>
+			Umidade medida pelo sensor	
+		</p>
+	</div>
+	<div id="image01" style="display: inline_block" align="center">
+		<img src="images/06.jpeg"/><br>
+		<p>
+			Temperatura medida pelo sensor	
+		</p>
+	</div>
+	<div id="image01" style="display: inline_block" align="center">
+		<img src="images/09.jpeg"/><br>
+		<p>
+			Selecionando um sensor inexistente
+		</p>
+	</div>
+	<div id="image01" style="display: inline_block" align="center">
+		<img src="images/10.jpeg"/><br>
+		<p>
+			Erro na recepção de dados
 		</p>
 	</div>
 </div>
@@ -252,12 +294,7 @@ Este comando irá gerar o executável PBLSensores, o qual deve ser executado.
 <div id="conclusao">
 	<h1>Conclusão</h1>
 	<p>
-	Para atingir o objetivo solicitado neste problema foi necessário entender o conceito de mapemento de memória e o implementar, a fim de obter o endereço de memória virtual e consequentemente conseguir acessar a UART. Posteriormente a isso foi possível configura-la a partir das necessidades apontadas como requisitos do sistema, e enviar um dado de acordo com o padrão RS232.
-	</p>
-	<p>
-Além disso, o protótipo do sistema auxiliou os graduandos em Engenharia da Computação na solidificação do conhecimento a cerca da arquitetura ARM e conceitos base da linguagem Assembly, como: principais mnemônicos, estruturas condicionais e estruturas de repetição.
-	</p>
-	<p>
-O problema solucionado cumpre <strong>todos</strong> os requisitos solicitados, e foi desenvolvido utilizando Raspberry Pi Zero além de ter sido devidamente testado através da verificação do dado enviado utilizando o osciloscópio e teste de loopback.
+	Para atingir o objetivo solicitado neste problema foi necessário compreender conceitos da programação em Verilog e integrar código assembly e C, a fim de solidificar o entendimento dos conceitos básicos a cerca de protocolos de comunicação serial.
+	Além disso, o problema solucionado cumpre <strong>todos</strong> os requisitos solicitados, e foi desenvolvido utilizando Raspberry Pi Zero e FPGA Cyclone IV, além de ter sido devidamente testado através da verificação do dado enviado e recebido utilizando o osciloscópio.
 	</p>
 </div>
