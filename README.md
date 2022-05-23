@@ -254,8 +254,14 @@ S9: Soma 1 ao contador que indica qual posição do Bit e segue para o estado S6
 
 <div id="executar">
 	<h1>Como executar</h1>
-		<p>
-		Os arquivos base do códgio assembly encontra-se no caminho diretório (/pbl-sistemas-digitais/PBL/) e são denominados:
+                <p>
+                    Para a execução deste produto é necessário dos itens listados na <a href="#recursos">seção de recursos</a>. Com isso, realiza a pinagem, compila e descarrega o código na pasta FPGA na placa, posteriormente, liga-se o pino TX da raspberry no RX da FPGA, e o pino RX da mesma no TX. 
+Seguidamente, abrindo o terminal no diretório Rasp, executa-se: 
+<br>
+make all
+<br>
+Este comando irá gerar o executável PBLSensores, o qual deve ser executado. 
+
 		</p>
 		<ul>
 			<li>uartConfig.s</li>
