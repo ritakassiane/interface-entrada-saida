@@ -59,7 +59,7 @@ Pensando nisso,
 	<h2>Enviando requisição da Raspberry para a FPGA</h2>
 	<p>
 		Inicialmente, o programa utiliza os valores das variáveis UART LCRH, UART_IBRD E UART_FBRD pré-definidos pelo programador como parâmetros da função que configura a Uart.  <br>
-	Posteriormente, inicia-se a interação com o usuário a qual solicita a este qual requisição ele gostaria de saber (Medida de umidade, medida de temperatura ou estado atual do sensor) e qual o número de identificação do sensor que este deseja (apenas permitidos valores entre 1 e 32). Depois, é enviado, respectivamente, o endereço e a requisição para  o pino TX da Raspberry, o qual está ligada ao pino RX da FPGA. 
+	Posteriormente, inicia-se a interação com o usuário a qual solicita a este qual requisição ele gostaria de saber (Medida de umidade, medida de temperatura ou estado atual do sensor) e qual o número de identificação do sensor que este deseja (apenas permitidos valores entre 0 e 31). Depois, é enviado, respectivamente, o endereço e a requisição para  o pino TX da Raspberry, o qual está ligada ao pino RX da FPGA. 
 	</p>
 	<h2>Leitura da resposta da FPGA</h2>
 	<p>
