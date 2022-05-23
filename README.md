@@ -1,9 +1,9 @@
 # 📌Sistemas Digitais
+<p>
 O aumento da produtividade industrial utilizando cada vez menos recursos humanos é um dos principais frutos proporcionados pela 4ª revolução industrial. Nesse contexto, a exponencial evolução da tecnologia torna indubitável a necessidade por engenharia qualificada, capaz de maximizar a eficiência de processos utilizando, sobretudo, a prototipação de sistemas. 
 
-Pensando nisso,
-
-
+Pensando nisso, uma empresa contratou uma equipe de engenheiros da computação em formação, para o desenvolvimento de um protótipo de sistema digital capaz de monitorar 32 sensores. O produto implementado consiste em um sistema comandado por um Single Board Computer (SBC), o qual controla o acionamento de um conjunto variáveis de sensores, assim como monitora o seu seu estado de funcionamento de forma automatizada. Cada operação de pode ser representada por um código o qual é interpretado por um driver UART. 
+</p>
 ## 👥Equipe: <br>
 * Paulo Queiroz de Carvalho <br>
 * Rita Kassiane Santos  <br>
